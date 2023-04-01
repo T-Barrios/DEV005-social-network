@@ -1,5 +1,4 @@
 export const login = () => {
-  const logoContainer = document.createElement("div")
   return `
     <section class= 'containerLogin'> 
 
@@ -7,23 +6,27 @@ export const login = () => {
             <img class='logoInicio' src =./Img/logo-inicio.png></img>
         </article>
 
-        <div class='containerMainConent'>
+        <div class='containerMainContent'>
 
-            <div class='containerInput'>
+            <div class='containerTitle'>
                 <h1 class='hInicio'>Iniciar Sesión</h1>
-                <div class="inputLabel"><h2>Correo</h2></div>
+            </div>
+            <div class='containerInput'>
+                <h2>Correo</h2>
                 <input class='input'></input>
-                <div class="inputLabel"><h2>Contraseña</h2></div>
+                <h2>Contraseña</h2>
                 <input class='input'></input>
             </div>
-
-            <div class='containerButtonInicio'>
+            <div class="containerBtnIniciar">
                 <button class='button'>INICIAR</button>
-                <button class='buttonGoogle' type="button"> <img class='imgGoogle' src="./Img/logo-g-google.png" />Continuar con Google</button>
-                <h2>O</h2>
-                <h2>Registrar cuenta</h2>
             </div>
-
+            <div class="containerBtnGoogle">
+                <button class='buttonGoogle' type="button"> <img class='imgGoogle' src="./Img/logo-g-google.png" />Continuar con Google</button>
+            </div>  
+            <div class="containerRegistrar">  
+                <h2>O</h2>
+                <a href="./Views/register.js"><h2 class="registrar">Registrar cuenta</h2></a>
+            </div>
         </div>
     </section>
     `

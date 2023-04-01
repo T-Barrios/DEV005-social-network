@@ -1,82 +1,105 @@
-.containerLogin {
+body{
     background-color: #DB0001;
-    display: flex;
-    flex-direction: column;
 }
 
-.containerLogoInicio {
-    display: flex;
-    justify-content: center;
-    margin-top: 6%;
-    margin-bottom: 10%;
-}
-
-.logoInicio {
-    width: 50%;
-}
-
-.containerMainContent {
-    background-color: green;
+.containerLogin {
+    background-color: greenyellow;
     display: flex;
     flex-direction: column;
     align-items: center;
- 
-    
-
 }
 
-.containerButtonInicio {
-    background-color: pink;
+.containerLogoInicio {
+    background-color: green;
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.containerMainContent {
+    background-color: black; 
     display: flex;
     flex-direction: column;
+    align-items: center; 
+    width: fit-content;    
+}
 
+.containerTitle {
+    background-color: yellow;
+    display: flex;
+    justify-content: center;
 }
 
 .containerInput {
     background-color: blue;
-    display: flex;
-    flex-direction: column; 
     width: fit-content;
-    margin-left: 20%;
-
 }
 
-.imgGoogle {
-    width: 4%;
+.containerBtnIniciar {
+    background-color: pink;
+    width: fit-content;
+}
+
+.containerBtnGoogle {
+    background-color: goldenrod;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: fit-content;
+}
+
+.containerRegistrar {
+    background-color: grey;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
 }
 
 .button {
     background-color: #212121;
-    font-size: 150%;
+    font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
-    padding: 3% 6%;
+}
 
+.logoInicio {
+    width: 70%;
 }
 
 h1 {
-    font-size: 200%;
+    font-size: 30px;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
-
-
-
 }
 
 h2 {
-    font-size: 150%;
+    font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
-    margin: 0; 
-    padding: 0; 
 }
 
-.hInicio {
-    margin-bottom: 5%;
+.buttonGoogle {
+    background-color: #EFEFEF;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    width: 80%;
+}
+
+.imgGoogle {
+    width: 6%;
+    margin-right: 2%;
 }
 
 .input {
-    margin-top: 2%;
-    margin-bottom: 7%;
+    margin: 0%;
+    padding: 0%;
+    border-radius: 10px;
+
 }
 
+.registrar {
+    text-decoration: underline
+}
