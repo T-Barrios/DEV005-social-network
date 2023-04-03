@@ -1,105 +1,139 @@
+
 body{
+    width: 100%;
     background-color: #DB0001;
+    margin: 0;
 }
 
-.containerLogin {
-    background-color: greenyellow;
+.containerSection {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.containerLogoInicio {
-    background-color: green;
+/* Contenedor logo inicio */
+.containerLogoLogin {
     display: flex;
     justify-content: center;
     margin-top: 5%;
     margin-bottom: 5%;
+    width: 80%
+}
+.logoLogin {
+    width: 70%;
 }
 
+.containerLogoRegister {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5%;
+}
+
+.logoRegister {
+    width: 70%;
+}
+
+/* Contenedor de titulo, imput y botones */
 .containerMainContent {
-    background-color: black; 
     display: flex;
     flex-direction: column;
     align-items: center; 
     width: fit-content;    
 }
-
+/* Contenedor título */
 .containerTitle {
-    background-color: yellow;
     display: flex;
     justify-content: center;
 }
-
+h1 {
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap');
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 2rem;
+    color: #FFFFFF;
+    margin: auto;
+}
+/* Contenedor de inputs*/
 .containerInput {
-    background-color: blue;
+    width: fit-content;
+    margin-top: 10%;
+}
+h2 {
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    color: white;
+}
+.input {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    width: 310px;
+    height: 50px;
+    left: calc(50% - 310px/2 - 5px);
+    top: calc(50% - 60px/2 - 90px);
+    background: #F7F7F7;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 34px;
+    font-size: 30px;
+}
+/* Contenedor boton iniciar*/
+.containerBtnLogin {
     width: fit-content;
 }
-
-.containerBtnIniciar {
-    background-color: pink;
-    width: fit-content;
-}
-
-.containerBtnGoogle {
-    background-color: goldenrod;
+.button {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
+    padding: 16px 24px;
+    gap: 4px;
     width: fit-content;
+    background: #212121;
+    border-radius: 4px;
+    background-color: #212121;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    margin-top: 20%;
+    margin-bottom: 30%;
 }
-
-.containerRegistrar {
-    background-color: grey;
+/* Contenedor boton google */
+.containerBtnGoogle {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+.buttonGoogle {
+    display: grid;
+    grid-column: 1 / span 3;
+    background-color: #EFEFEF;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    width: 310px;
+    height: 60px;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 34px;
+    margin-bottom: 3%;
+}
+.imgGoogle {
+    width: 10%;
+    margin-right: 12%;
+    margin-top: 1%;
+}
+/* Container para crear cuenta*/
+.containerCreateAccount {
     width: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center; 
 }
-
-.button {
-    background-color: #212121;
-    font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
-}
-
-.logoInicio {
-    width: 70%;
-}
-
-h1 {
-    font-size: 30px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
-}
-
-h2 {
-    font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
-}
-
-.buttonGoogle {
-    background-color: #EFEFEF;
-    font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: black;
-    width: 80%;
-}
-
-.imgGoogle {
-    width: 6%;
-    margin-right: 2%;
-}
-
-.input {
-    margin: 0%;
-    padding: 0%;
-    border-radius: 10px;
-
-}
-
-.registrar {
-    text-decoration: underline
+.createAccount {
+    text-decoration: underline;
 }
