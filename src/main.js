@@ -9,4 +9,6 @@ import { login } from "./Views/login";
 import { register } from "./Views/register";
 
 document.getElementById("root").innerHTML = login();
+
 //document.getElementById("root").innerHTML = register();
+
