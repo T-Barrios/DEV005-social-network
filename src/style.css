@@ -1,0 +1,171 @@
+body{
+    width: 100%;
+    background-color: #DB0001;
+    margin: 0;
+}
+
+.containerSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Contenedor logo inicio */
+.containerLogoLogin {
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 80%
+}
+.logoLogin {
+    width: 70%;
+}
+
+.containerLogoRegister {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5%;
+}
+
+.logoRegister {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 85%;
+}
+
+/* Contenedor de titulo, imput y botones */
+.containerMainContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+}
+/* Contenedor título */
+.containerTitle {
+    display: flex;
+    justify-content: center;
+}
+h1 {
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap');
+    font-family: 'Inter', sans-serif;
+    font-size: 2rem;
+    color: #FFFFFF;
+    margin: auto;
+}
+/* Contenedor de inputs*/
+.containerInput {
+    width: fit-content;
+}
+h2 {
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    color: white;
+}
+.input {
+    box-sizing: border-box;
+    width: 310px;
+    height: 50px;
+    background: #F7F7F7;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 34px;
+    font-size: 30px;
+}
+/* Contenedor boton iniciar*/
+.containerBtnLogin {
+
+}
+button.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    border-radius: 4px;
+    background-color: #212121;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    
+}
+/* Contenedor boton google */
+button.containerBtnGoogle {
+    background-color: blue;
+    
+}
+.buttonGoogle {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    background-color: red;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    width: 310px;
+    height: 60px;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 34px;
+}
+.imgGoogle {
+    width: 10%;
+}
+/* Container para crear cuenta*/
+.containerCreateAccount {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    height: min-content;
+
+}
+.createAccount {
+    text-decoration: underline;
+}
+
+
+/* Agregar estilos visuales al boton de google*/
+
+.google-btn {
+  width: 184px;
+  height: 42px;
+  background-color: #4285f4;
+  border-radius: 2px;
+  box-shadow: 0 3px 4px 0 rgba(0,0,0,.25); 
+}
+.google-btn .google-icon-wrapper {
+    position: absolute;
+    margin-top: 1px;
+    margin-left: 1px;
+    width: 40px;
+    height: 40px;
+    border-radius: 2px;
+    background-color: #fff;
+  }
+  .google-btn .google-icon {
+    position: absolute;
+    margin-top: 11px;
+    margin-left: 11px;
+    width: 18px;
+    height: 18px;
+  }
+  .google-btn .btn-text {
+    float: right;
+    margin: 11px 11px 0 0;
+    color: #F7F7F7;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+    font-family: "Roboto";
+  }
+  
+.containerError {
+    display: flex;
+    justify-content: center;
+}
+
+  .imgError{
+    width: 80%;
+  }
