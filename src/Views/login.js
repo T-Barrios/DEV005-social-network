@@ -1,33 +1,66 @@
-export const login = () => {
-  return `
-    <section class= 'containerLogin'> 
+function login() {
+  const section = document.createElement('section');
+  section.className = 'containerSection';
+  // Contenedor logo inicio
+  const article = document.createElement('article');
+  article.className = 'containerLogoLogin';
+  const logoLogin = document.createElement('img');
+  logoLogin.className = 'logoLogin';
+  logoLogin.src = './Img/logo-login.png';
+  // Contenedor de titulo, input y botones
+  const containerMainContent = document.createElement('div');
+  containerMainContent.className = 'containerMainContent';
+  // Contenedor título
+  const containerTitle = document.createElement('div');
+  containerTitle.className = 'containerTitle';
+  const titleLogin = document.createElement('h1');
+  titleLogin.textContent = 'Iniciar Sesión';
+  // Contenedor de inputs
+  const containerInput = document.createElement('div');
+  containerInput.className = 'containerInput';
+  const textMail = document.createElement('h2');
+  textMail.textContent = 'Correo';
+  const inputMail = document.createElement('input');
+  inputMail.className = 'input';
+  const textPass = document.createElement('h2');
+  textPass.textContent = 'Contraseña';
+  const inputPass = document.createElement('input');
+  inputPass.className = 'input';
+  // Contenedor boton iniciar
+  const containerBtnLogin = document.createElement('div');
+  containerBtnLogin.className = 'containerBtnLogin';
+  const buttonLogin = document.createElement('button');
+  buttonLogin.className = 'button';
+  buttonLogin.textContent = 'INICIAR';
+  // Contenedor boton google
+  const containerBtnGoogle = document.createElement('button');
+  containerBtnGoogle.className = 'containerBtnGoogle';
+  const buttonGoogle = document.createElement('button');
+  buttonGoogle.className = 'buttonGoogle';
+  buttonGoogle.textContent = 'Continuar con Google';
+  const imgGoogle = document.createElement('img');
+  imgGoogle.src = './Img/logo-g-google.png';
+  imgGoogle.className = 'imgGoogle';
+  // Container para crear cuenta
+  const containerCreateAccount = document.createElement('div');
+  containerCreateAccount.className = 'containerCreateAccount';
+  const textOr = document.createElement('h2');
+  textOr.textContent = 'O';
+  const createAccount = document.createElement('h2');
+  createAccount.textContent = 'Registrar cuenta';
+  createAccount.className = 'createAccount';
 
-        <article class='containerLogoInicio'>
-            <img class='logoInicio' src =./Img/logo-inicio.png></img>
-        </article>
-
-        <div class='containerMainContent'>
-
-            <div class='containerTitle'>
-                <h1 class='hInicio'>Iniciar Sesión</h1>
-            </div>
-            <div class='containerInput'>
-                <h2>Correo</h2>
-                <input class='input'></input>
-                <h2>Contraseña</h2>
-                <input class='input'></input>
-            </div>
-            <div class="containerBtnIniciar">
-                <button class='button'>INICIAR</button>
-            </div>
-            <div class="containerBtnGoogle">
-                <button class='buttonGoogle' type="button"> <img class='imgGoogle' src="./Img/logo-g-google.png" />Continuar con Google</button>
-            </div>  
-            <div class="containerRegistrar">  
-                <h2>O</h2>
-                <a href="./Views/register.js"><h2 class="registrar">Registrar cuenta</h2></a>
-            </div>
-        </div>
-    </section>
-    `
+  containerTitle.append(titleLogin);
+  containerInput.append(textMail, inputMail, textPass, inputPass);
+  containerBtnLogin.append(buttonLogin);
+  buttonGoogle.append(imgGoogle);
+  containerBtnGoogle.append(buttonGoogle);
+  containerCreateAccount.append(textOr, createAccount);
+  // eslint-disable-next-line max-len
+  containerMainContent.append(containerTitle, containerInput, containerBtnLogin, containerBtnGoogle, containerCreateAccount);
+  article.append(logoLogin);
+  section.append(article, containerMainContent);
+  return section;
 }
+
+export default login;
