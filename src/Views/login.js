@@ -1,4 +1,6 @@
-function login() {
+import botonMaravillodeGoogle from './login/buttonGoogle.js';
+
+function login(navigateTo) {
   const section = document.createElement('section');
   section.className = 'containerSection';
   // Contenedor logo inicio
@@ -50,6 +52,10 @@ function login() {
   createAccount.textContent = 'Registrar cuenta';
   createAccount.className = 'createAccount';
 
+  createAccount.addEventListener('click', () => {
+    navigateTo('/register');
+  });
+
   containerTitle.append(titleLogin);
   containerInput.append(textMail, inputMail, textPass, inputPass);
   containerBtnLogin.append(buttonLogin);
@@ -57,7 +63,7 @@ function login() {
   containerBtnGoogle.append(buttonGoogle);
   containerCreateAccount.append(textOr, createAccount);
   // eslint-disable-next-line max-len
-  containerMainContent.append(containerTitle, containerInput, containerBtnLogin, containerBtnGoogle, containerCreateAccount);
+  containerMainContent.append(containerTitle, containerInput, containerBtnLogin, botonMaravillodeGoogle(), containerCreateAccount);
   article.append(logoLogin);
   section.append(article, containerMainContent);
   return section;
