@@ -1,4 +1,7 @@
 import botonMaravillodeGoogle from './login/buttonGoogle.js';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../lib/index.js';
+import { async } from 'regenerator-runtime';
 
 function login(navigateTo) {
   const section = document.createElement('section');
@@ -88,7 +91,19 @@ function login(navigateTo) {
   article.append(logoLogin);
   section.append(article, containerMainContent);
 
+
+  buttonLogin.addEventListener('click', async (e) => {
+    e.preventDefault();
+    console.log(inputMail.value, inputPass.value);
+    try {
+      // eslint-disable-next-line max-len
+      const userCredential = await signInWithEmailAndPassword(auth, inputMail.value, inputPass.value);
+      console.log(userCredential);
+      } catch (error) {
+        console.log(error);
+      }
+    });
+
   return section;
 }
-
 export default login;

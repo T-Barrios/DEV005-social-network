@@ -1,4 +1,4 @@
-import login from './Views/login';
+import login from './Views/login'; 
 import register from './Views/register';
 import error from './Views/error';
 
@@ -33,10 +33,4 @@ function navigateTo(hash) {
 window.onpopstate = () => {
   navigateTo(window.location.pathname);
 };
-
 navigateTo(window.location.pathname || defaultRoute);
-
-
-const x = document.getElementById('title');
-//const btn = x.getElementById('title');
-console.log(x);
