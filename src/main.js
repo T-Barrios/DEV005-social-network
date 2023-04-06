@@ -35,3 +35,8 @@ window.onpopstate = () => {
 };
 
 navigateTo(window.location.pathname || defaultRoute);
+
+
+const x = document.getElementById('title');
+//const btn = x.getElementById('title');
+console.log(x);
