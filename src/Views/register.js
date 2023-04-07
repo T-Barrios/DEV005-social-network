@@ -45,12 +45,6 @@ function register() {
   article.append(logoRegister);
   section.append(article, containerMainContent);
   return section;
-
-/*
-  article.append(logoRegister);
-  section.append(article);
-  return section;
-*/
 }
 
 export default register;
