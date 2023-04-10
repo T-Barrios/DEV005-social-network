@@ -73,9 +73,9 @@ h2 {
 }
 /* Contenedor boton iniciar*/
 .containerBtnLogin {
-
 }
-button.button {
+
+ button.button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -86,12 +86,12 @@ button.button {
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     margin-top: 1rem;
-    margin-bottom: 2rem;
-    
+    margin-bottom: 2rem;    
 }
-/* Contenedor boton google */
-button.containerBtnGoogle {
 
+/* Contenedor boton google */
+.containerBtnGoogle {
+    
 }
 
 .buttonGoogle {
@@ -100,7 +100,7 @@ button.containerBtnGoogle {
     align-items: center;
     flex-direction: row-reverse;
     justify-content: space-evenly;
-    background-color: red;
+    background-color: #F7F7F7;
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
     color: black;
@@ -128,7 +128,7 @@ button.containerBtnGoogle {
 
 /* Agregar estilos visuales al boton de google*/
 
-.google-btn {
+/*.google-btn {
   width: 184px;
   height: 42px;
   background-color: #4285f4;
@@ -158,8 +158,9 @@ button.containerBtnGoogle {
     font-size: 14px;
     letter-spacing: 0.2px;
     font-family: "Roboto";
-  }
+  }*/
   
+ /* Vista error */ 
 .containerError {
     display: flex;
     justify-content: center;
@@ -169,7 +170,7 @@ button.containerBtnGoogle {
     width: 80%;
   }
 
-  /* parrafo error */
+/* parrafo error */
   .containerError{
     width: 100%;
     display: flex;

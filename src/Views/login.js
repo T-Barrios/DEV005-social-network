@@ -1,6 +1,7 @@
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+
 import { async } from 'regenerator-runtime';
-import botonMaravillodeGoogle from './login/buttonGoogle.js';
+// import botonMaravillodeGoogle from './login/buttonGoogle.js';
 import { auth } from '../lib/index.js';
 
 function login(navigateTo) {
@@ -60,11 +61,13 @@ function login(navigateTo) {
   buttonLogin.type = 'button';
 
   // Contenedor boton google
-  const containerBtnGoogle = document.createElement('button');
+  const containerBtnGoogle = document.createElement('id');
   containerBtnGoogle.className = 'containerBtnGoogle';
   const buttonGoogle = document.createElement('button');
   buttonGoogle.className = 'buttonGoogle';
   buttonGoogle.textContent = 'Continuar con Google';
+  buttonGoogle.id = 'btnGoogle';
+  buttonGoogle.type = 'button';
   const imgGoogle = document.createElement('img');
   imgGoogle.src = './Img/logo-g-google.png';
   imgGoogle.className = 'imgGoogle';
@@ -100,7 +103,7 @@ function login(navigateTo) {
     containerInput,
     containerError,
     containerBtnLogin,
-    botonMaravillodeGoogle(),
+    containerBtnGoogle,
     containerCreateAccount,
   );
   article.append(logoLogin);
@@ -132,6 +135,19 @@ function login(navigateTo) {
       }
       console.log('error', error.code);
       console.log('holiwi', error.message);
+    }
+  });
+
+  // Iniciar con google
+  buttonGoogle.addEventListener('click', async () => {
+    const provider = new GoogleAuthProvider();
+
+    try {
+      const credentials = await signInWithPopup(auth, provider);
+      console.log('google', credentials);
+      navigateTo('/post');
+    } catch (error) {
+      console.log('google error', error);
     }
   });
 
