@@ -28,6 +28,12 @@ function login(navigateTo) {
   textPass.textContent = 'Contraseña';
   const inputPass = document.createElement('input');
   inputPass.className = 'input';
+  // Contenedor parrafo error
+  const containerError = document.createElement('div')
+  containerError.className = 'containerError';
+  const textError = document.createElement('p')
+  textError.id = 'textError';
+  textError.textContent = '';
   // Contenedor boton iniciar
   const containerBtnLogin = document.createElement('div');
   containerBtnLogin.className = 'containerBtnLogin';
@@ -62,10 +68,12 @@ function login(navigateTo) {
   buttonGoogle.append(imgGoogle);
   containerBtnGoogle.append(buttonGoogle);
   containerCreateAccount.append(textOr, createAccount);
+  containerError.append(textError);
   // eslint-disable-next-line max-len
-  containerMainContent.append(containerTitle, containerInput, containerBtnLogin, botonMaravillodeGoogle(), containerCreateAccount);
+  containerMainContent.append(containerTitle, containerInput,containerError, containerBtnLogin, botonMaravillodeGoogle(), containerCreateAccount);
   article.append(logoLogin);
   section.append(article, containerMainContent);
+
   return section;
 }
 
