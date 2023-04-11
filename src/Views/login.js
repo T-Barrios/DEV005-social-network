@@ -41,6 +41,7 @@ function login(navigateTo) {
   textPass.id = 'textPass';
   const inputPass = document.createElement('input');
   inputPass.className = 'input';
+
   inputPass.id = 'txtPassword';
   inputPass.type = 'password';
 
@@ -98,6 +99,7 @@ function login(navigateTo) {
   containerCreateAccount.append(textOr, createAccount);
   containerError.append(textError);
   // eslint-disable-next-line max-len
+
   containerMainContent.append(
     containerTitle,
     containerInput,
