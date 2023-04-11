@@ -169,3 +169,18 @@ button.containerBtnGoogle {
   .imgError{
     width: 80%;
   }
+
+  /* parrafo error */
+  .containerError{
+    opacity: 0.8;
+    margin-top: 2%;
+  }
+
+  #textError {
+    font-size: 1rem;
+    background-color: #212121;
+    font-family: 'Inter', sans-serif;
+    color: white;
+    font-weight: 900;
+    padding: 20%;
+  }

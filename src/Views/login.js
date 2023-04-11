@@ -1,7 +1,7 @@
-import botonMaravillodeGoogle from './login/buttonGoogle.js';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../lib/index.js';
 import { async } from 'regenerator-runtime';
+import botonMaravillodeGoogle from './login/buttonGoogle.js';
+import { auth } from '../lib/index.js';
 
 function login(navigateTo) {
   const section = document.createElement('section');
@@ -71,6 +71,13 @@ function login(navigateTo) {
   createAccount.textContent = 'Registrar cuenta';
   createAccount.className = 'createAccount';
 
+  // Contenedor parrafo error
+  const containerError = document.createElement('div');
+  containerError.className = 'containerError';
+  const textError = document.createElement('p');
+  textError.id = 'textError';
+  textError.textContent = '';
+
   createAccount.addEventListener('click', () => {
     navigateTo('/register');
   });
@@ -86,11 +93,11 @@ function login(navigateTo) {
   buttonGoogle.append(imgGoogle);
   containerBtnGoogle.append(buttonGoogle);
   containerCreateAccount.append(textOr, createAccount);
+  containerError.append(textError);
   // eslint-disable-next-line max-len
-  containerMainContent.append(containerTitle, containerInput, containerBtnLogin, botonMaravillodeGoogle(), containerCreateAccount);
+  containerMainContent.append(containerTitle, containerInput, containerError, containerBtnLogin, botonMaravillodeGoogle(), containerCreateAccount);
   article.append(logoLogin);
   section.append(article, containerMainContent);
-
 
   buttonLogin.addEventListener('click', async (e) => {
     e.preventDefault();
@@ -99,10 +106,10 @@ function login(navigateTo) {
       // eslint-disable-next-line max-len
       const userCredential = await signInWithEmailAndPassword(auth, inputMail.value, inputPass.value);
       console.log(userCredential);
-      } catch (error) {
-        console.log(error);
-      }
-    });
+    } catch (error) {
+      console.log(error);
+    }
+  });
 
   return section;
 }
