@@ -61,7 +61,7 @@ function login(navigateTo) {
   buttonLogin.type = 'button';
 
   // Contenedor boton google
-  const containerBtnGoogle = document.createElement('id');
+  const containerBtnGoogle = document.createElement('div');
   containerBtnGoogle.className = 'containerBtnGoogle';
   const buttonGoogle = document.createElement('button');
   buttonGoogle.className = 'buttonGoogle';
