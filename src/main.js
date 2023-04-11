@@ -1,6 +1,8 @@
-import login from './Views/login'; 
+import login from './Views/login';
 import register from './Views/register';
 import error from './Views/error';
+import post from './Views/post';
+import welcome from './Views/welcome';
 
 const defaultRoute = '/';
 const root = document.getElementById('root');
@@ -9,6 +11,8 @@ const routes = [
   { path: '/', component: login },
   { path: '/register', component: register },
   { path: '/error', component: error },
+  { path: '/post', component: post },
+  { path: '/welcome', component: welcome },
 ];
 
 function navigateTo(hash) {
