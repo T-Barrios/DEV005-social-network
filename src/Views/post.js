@@ -1,49 +1,78 @@
 function post() {
   const section = document.createElement('article');
   section.className = 'containerSection';
-  // Contenedor logo inicio
-  const article = document.createElement('article');
-  article.className = 'containerLogoRegister';
-  const logoRegister = document.createElement('img');
-  logoRegister.className = 'logoRegister';
-  logoRegister.src = './Img/logo-register.png';
-  // Contenedor de titulo, imput y botones
-  const containerMainContent = document.createElement('div');
-  containerMainContent.className = 'containerMainContent';
-  // Contenedor título
-  const containerTitle = document.createElement('div');
-  containerTitle.className = 'containerTitle';
-  const titleRegister = document.createElement('h1');
-  titleRegister.textContent = 'Registrar Cuenta';
-  // Contenedor de inputs
-  const containerInput = document.createElement('div');
-  containerInput.className = 'containerInput';
-  const textMail = document.createElement('h2');
-  textMail.textContent = 'Correo';
-  const inputMail = document.createElement('input');
-  inputMail.className = 'input';
-  const textPass = document.createElement('h2');
-  textPass.textContent = 'Contraseña';
-  const inputPass = document.createElement('input');
-  inputPass.className = 'input';
-  const textPassConfirm = document.createElement('h2');
-  textPassConfirm.textContent = 'Confirmar contraseña';
-  const inputPassConfirm = document.createElement('input');
-  inputPassConfirm.className = 'input';
-  // Contenedor boton iniciar
-  const containerBtnRegister = document.createElement('div');
-  containerBtnRegister.className = 'containerBtnRegister';
-  const buttonRegister = document.createElement('button');
-  buttonRegister.className = 'button';
-  buttonRegister.textContent = 'REGISTRAR';
+  // Contenedor header post
+  const containerHeader = document.createElement('section');
+  containerHeader.className = 'containerHeader';
+  const containerLogoPost = document.createElement('div');
+  containerLogoPost.className = 'containerLogoPost';
+  const logoPost = document.createElement('img');
+  logoPost.className = 'logoPost';
+  logoPost.src = './Img/logo-post.png';
+  const containerUserIcon = document.createElement('div');
+  containerUserIcon.class = 'containerUserIcon';
+  const userIcon = document.createElement('img');
+  userIcon.src = './user icon/icon-green-mushroom.png';
+  userIcon.id = 'userIcon';
+  // Container main
+  const containerMain = document.createElement('section');
+  containerMain.className = 'containerMain';
+  // Container header post
+  const containerHeaderPost = document.createElement('div');
+  containerHeaderPost.className = 'containerHeaderPost';
+  const containerUserEmail = document.createElement('div');
+  containerUserEmail.className = 'containerUserMail';
+  const userEmail = document.createElement('p');
+  userEmail.textContent = 'Mario';
+  const containerUserIconPost = document.createElement('div');
+  containerUserIconPost.className = 'containerUserIconPost';
+  const userIconPost = document.createElement('img');
+  userIconPost.src = './user icon/icon-red-mushroom.png';
+  userIconPost.id = 'userIconPost';
+  // Container post
+  const containerPost = document.createElement('div');
+  containerPost.className = 'containerPost';
+  const txtPost = document.createElement('p');
+  txtPost.textContent = 'Chayanne es bacán.';
+  // Container footer post
+  const containerFooterPost = document.createElement('div');
+  containerFooterPost.className = 'containerFooterPost';
+  const containerNumberOfLikes = document.createElement('div');
+  containerNumberOfLikes.classList = 'containerUserEmail';
+  const numberOfLikes = document.createElement('p');
+  numberOfLikes.textContent = '2';
+  const containerLikesIcon = document.createElement('div');
+  containerLikesIcon.className = 'containerLikesIcon';
+  const likesIcon = document.createElement('img');
+  likesIcon.src = './Img/icon-likes.png';
+  likesIcon.id = 'likesIcon';
+  // Container menu
+  const containerMenu = document.createElement('div');
+  containerMenu.className = 'containerMenu';
+  const containerBtnNewPost = document.createElement('div');
+  containerBtnNewPost.className = 'containerBtnNewPost';
+  const btnNewPost = document.createElement('button');
+  btnNewPost.textContent = '+';
+  btnNewPost.id = 'btnNewPost';
 
-  containerTitle.append(titleRegister);
-  // eslint-disable-next-line max-len
-  containerInput.append(textMail, inputMail, textPass, inputPass, textPassConfirm, inputPassConfirm);
-  containerBtnRegister.append(buttonRegister);
-  containerMainContent.append(containerTitle, containerInput, containerBtnRegister);
-  article.append(logoRegister);
-  section.append(article, containerMainContent);
+  containerLogoPost.append(logoPost);
+  containerUserIcon.append(userIcon);
+  containerUserEmail.append(userEmail);
+  containerUserIcon.append(userIcon);
+  containerFooterPost.append(containerNumberOfLikes, containerLikesIcon);
+  containerNumberOfLikes.append(numberOfLikes);
+  containerLikesIcon.append(likesIcon);
+  containerHeaderPost.append(containerUserEmail, containerUserIcon);
+  containerPost.append(txtPost);
+  containerBtnNewPost.append(btnNewPost);
+
+  containerHeader.append(containerLogoPost, containerUserIcon);
+  containerMain.append(containerHeaderPost, containerPost, containerFooterPost);
+  containerMenu.append(containerBtnNewPost);
+  section.append(containerHeader, containerMain, containerMenu);
+
+  document.body.style.backgroundColor = '#262523';
+
   return section;
 }
 
