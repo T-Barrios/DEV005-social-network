@@ -1,5 +1,4 @@
 body{
-    width: 100%;
     background-color: #DB0001;
     margin: 0;
 }
@@ -74,9 +73,9 @@ h2 {
 }
 /* Contenedor boton iniciar*/
 .containerBtnLogin {
-
 }
-button.button {
+
+ button.button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -87,21 +86,21 @@ button.button {
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     margin-top: 1rem;
-    margin-bottom: 2rem;
-    
+    margin-bottom: 2rem;    
 }
+
 /* Contenedor boton google */
-button.containerBtnGoogle {
-    background-color: blue;
+.containerBtnGoogle {
     
 }
+
 .buttonGoogle {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     flex-direction: row-reverse;
     justify-content: space-evenly;
-    background-color: red;
+    background-color: #F7F7F7;
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
     color: black;
@@ -129,7 +128,7 @@ button.containerBtnGoogle {
 
 /* Agregar estilos visuales al boton de google*/
 
-.google-btn {
+/*.google-btn {
   width: 184px;
   height: 42px;
   background-color: #4285f4;
@@ -159,8 +158,9 @@ button.containerBtnGoogle {
     font-size: 14px;
     letter-spacing: 0.2px;
     font-family: "Roboto";
-  }
+  }*/
   
+ /* Vista error */ 
 .containerError {
     display: flex;
     justify-content: center;
@@ -168,4 +168,27 @@ button.containerBtnGoogle {
 
   .imgError{
     width: 80%;
+  }
+
+/* parrafo error */
+  .containerError{
+    width: 100%;
+    display: flex;
+    margin-top: 2%;
+  }
+
+  #textError {
+    font-size: 1rem;
+    background-color: #212121;
+    opacity: 0.8;
+    font-family: 'Inter', sans-serif;
+    color: white;
+    font-weight: 900;
+    width: 100%;
+    text-align: center;
+    /*padding-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+    border-radius: 3%; */
   }

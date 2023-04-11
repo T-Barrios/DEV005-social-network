@@ -1,7 +1,8 @@
-import botonMaravillodeGoogle from './login/buttonGoogle.js';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../lib/index.js';
+import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+
 import { async } from 'regenerator-runtime';
+// import botonMaravillodeGoogle from './login/buttonGoogle.js';
+import { auth } from '../lib/index.js';
 
 function login(navigateTo) {
   const section = document.createElement('section');
@@ -43,6 +44,13 @@ function login(navigateTo) {
   inputPass.id = 'txtPassword';
   inputPass.type = 'password';
 
+  // Contenedor parrafo error
+  const containerError = document.createElement('div');
+  containerError.className = 'containerError';
+  const textError = document.createElement('p');
+  textError.id = 'textError';
+  textError.textContent = '';
+
   // Contenedor boton iniciar
   const containerBtnLogin = document.createElement('div');
   containerBtnLogin.className = 'containerBtnLogin';
@@ -53,11 +61,13 @@ function login(navigateTo) {
   buttonLogin.type = 'button';
 
   // Contenedor boton google
-  const containerBtnGoogle = document.createElement('button');
+  const containerBtnGoogle = document.createElement('id');
   containerBtnGoogle.className = 'containerBtnGoogle';
   const buttonGoogle = document.createElement('button');
   buttonGoogle.className = 'buttonGoogle';
   buttonGoogle.textContent = 'Continuar con Google';
+  buttonGoogle.id = 'btnGoogle';
+  buttonGoogle.type = 'button';
   const imgGoogle = document.createElement('img');
   imgGoogle.src = './Img/logo-g-google.png';
   imgGoogle.className = 'imgGoogle';
@@ -86,23 +96,60 @@ function login(navigateTo) {
   buttonGoogle.append(imgGoogle);
   containerBtnGoogle.append(buttonGoogle);
   containerCreateAccount.append(textOr, createAccount);
+  containerError.append(textError);
   // eslint-disable-next-line max-len
-  containerMainContent.append(containerTitle, containerInput, containerBtnLogin, botonMaravillodeGoogle(), containerCreateAccount);
+  containerMainContent.append(
+    containerTitle,
+    containerInput,
+    containerError,
+    containerBtnLogin,
+    containerBtnGoogle,
+    containerCreateAccount,
+  );
   article.append(logoLogin);
   section.append(article, containerMainContent);
-
 
   buttonLogin.addEventListener('click', async (e) => {
     e.preventDefault();
     console.log(inputMail.value, inputPass.value);
+
     try {
       // eslint-disable-next-line max-len
-      const userCredential = await signInWithEmailAndPassword(auth, inputMail.value, inputPass.value);
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        inputMail.value,
+        inputPass.value,
+      );
       console.log(userCredential);
-      } catch (error) {
-        console.log(error);
+      // aqui va la ruta para post
+      navigateTo('/post');
+    } catch (error) {
+      if (error.code === 'auth/user-not-found') {
+        textError.innerHTML = 'Usuario no encontrado';
+      } else if (error.code === 'auth/wrong-password') {
+        textError.innerHTML = 'Contraseña equivocada';
+      } else if (error.code === 'auth/invalid-email') {
+        textError.innerHTML = 'Usuario no válido';
+      } else if (error.code === 'auth/internal-error') {
+        textError.innerHTML = 'Error interno, intentelo de nuevo';
       }
-    });
+      console.log('error', error.code);
+      console.log('holiwi', error.message);
+    }
+  });
+
+  // Iniciar con google
+  buttonGoogle.addEventListener('click', async () => {
+    const provider = new GoogleAuthProvider();
+
+    try {
+      const credentials = await signInWithPopup(auth, provider);
+      console.log('google', credentials);
+      navigateTo('/post');
+    } catch (error) {
+      console.log('google error', error);
+    }
+  });
 
   return section;
 }
