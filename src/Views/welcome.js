@@ -13,9 +13,6 @@ function welcome(navigateTo) {
   const textWelcome = document.createElement('h1');
   textWelcome.textContent = 'Su cuenta ha sido creada con éxito';
   textWelcome.id = 'txtWelcome';
-  const textEnter = document.createElement('h2');
-  textEnter.id = 'txtEnter';
-  textEnter.textContent = 'Vaya a inicio de sesión';
   // Contenedor boton iniciar Secion
   const containerBtnEnter = document.createElement('div');
   containerBtnEnter.className = 'containerBtnEnter';
@@ -30,7 +27,7 @@ function welcome(navigateTo) {
   imgWelcome.id = 'imgWelcome';
 
   containerImgWelcome.append(imgWelcome);
-  containerWelcome.append(textWelcome, textEnter);
+  containerWelcome.append(textWelcome);
   containerBtnEnter.append(buttonEnter);
   article.append(logoRegister);
   section.append(article, containerWelcome, containerBtnEnter, containerImgWelcome);
