@@ -1,8 +1,5 @@
-import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-
-import { async } from 'regenerator-runtime';
-// import botonMaravillodeGoogle from './login/buttonGoogle.js';
-import { auth } from '../lib/index.js';
+import { signInWithEmailAndPassword, signInWithPopup } from '../lib/firebase-service';
+// import { auth } from '../lib/index.js';
 
 function login(navigateTo) {
   const section = document.createElement('section');
@@ -118,7 +115,6 @@ function login(navigateTo) {
     try {
       // eslint-disable-next-line max-len
       const userCredential = await signInWithEmailAndPassword(
-        auth,
         inputMail.value,
         inputPass.value,
       );
@@ -130,6 +126,8 @@ function login(navigateTo) {
         textError.innerHTML = 'Usuario no encontrado';
       } else if (error.code === 'auth/wrong-password') {
         textError.innerHTML = 'Contraseña equivocada';
+      } else if (error.code === 'auth/missing-password') {
+        textError.innerHTML = 'Ingrese su contraseña';
       } else if (error.code === 'auth/invalid-email') {
         textError.innerHTML = 'Usuario no válido';
       } else if (error.code === 'auth/internal-error') {
@@ -142,10 +140,8 @@ function login(navigateTo) {
 
   // Iniciar con google
   buttonGoogle.addEventListener('click', async () => {
-    const provider = new GoogleAuthProvider();
-
     try {
-      const credentials = await signInWithPopup(auth, provider);
+      const credentials = await signInWithPopup();
       console.log('google', credentials);
       navigateTo('/post');
     } catch (error) {
