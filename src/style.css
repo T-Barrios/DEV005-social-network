@@ -68,6 +68,12 @@ h2 {
     letter-spacing: 2px;
 }
 
+p {
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    color: white;
+}
+
 .input {
     box-sizing: border-box;
     width: 310px;
@@ -124,7 +130,7 @@ button.button {
 
 .imgGoogle {
     width: 10%;
-}
+} 
 
 /* Container para crear cuenta*/
 .containerCreateAccount {
@@ -197,7 +203,7 @@ button.button {
 #txtEnter{
     text-align: center;
     margin-top: 2rem;
-}
+} 
 
 /* vista post */
 .containerHeader {
@@ -206,56 +212,91 @@ button.button {
     justify-content: center;
     margin-bottom: 5%;
 }
-/*
-.containerLogoPost {
 
-}*/
+.containerLogoPost {
+    display: flex;
+    justify-content: center;
+
+}
 .logoPost {
     margin-top: 5%;
     margin-bottom: 5%;
     width: 85%;    
 }
 .containerUserIcon {
-    width: 5%;
-    
+    display: flex;
+    justify-content: center;    
 }
 #userIcon {
-    margin-top: 5%;
-    margin-bottom: 5%;
+    display: flex;
+    align-self: center;
     width: 50%;
+    height: 70%;
+    background-color: #D9D9D9;  
+    border-radius: 100%;  
+    padding: 0.5rem;
+    border: 1px solid #000000;
     
 }
 .containerMain {
+    background-color: #575151;
     display: flex;
-    flex-direction: column;   
+    flex-direction: column; 
+    width: 80%; 
+    border: 1px solid #000000;
+    border-radius: 8px; 
 }
-/*
+
 .containerHeaderPost{
-    
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 .containerUserEmail{
-
+    display: flex;
+    width: 100%;
+    margin-left: 2%;
+    font-weight: bolder;
 }
+
 .containerUserIconPost{
-
+    display: flex;
+    height: fit-content;
+    align-items: center;
+    margin-left: 1%;
 }
+
 #userIconPost{
-
-}
+    display: flex;
+    width: 30px;
+    background-color: #D9D9D9;  
+    border-radius: 100%;  
+    padding: 0.5rem;
+    border: 1px solid #000000;
+} 
 .containerPost{
+    margin-left: 4%;
+    margin-right: 4%;
 
 }
 .containerFooterPost{
+    background-color: lightcoral;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse
 
 }
 .containerNumberOfLikes{
+    background-color: chartreuse;
 
 }
 .containerLikesIcon{
+    background-color: cornflowerblue;
 
-}*/
+}
 #likesIcon{
-    width: 5%;
+    width: 15px;
     
 }
 .containerMenu{
@@ -273,5 +314,7 @@ button.button {
     border-radius: 100%;
     padding-left: 1rem;
     padding-right: 1rem;
+    background-color: #DB0001;
+    border: 1px solid #000000;
+    color: #FFFFFF;
 }
-

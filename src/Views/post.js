@@ -10,7 +10,7 @@ function post() {
   logoPost.className = 'logoPost';
   logoPost.src = './Img/logo-post.png';
   const containerUserIcon = document.createElement('div');
-  containerUserIcon.class = 'containerUserIcon';
+  containerUserIcon.className = 'containerUserIcon';
   const userIcon = document.createElement('img');
   userIcon.src = './user icon/icon-green-mushroom.png';
   userIcon.id = 'userIcon';
@@ -21,7 +21,7 @@ function post() {
   const containerHeaderPost = document.createElement('div');
   containerHeaderPost.className = 'containerHeaderPost';
   const containerUserEmail = document.createElement('div');
-  containerUserEmail.className = 'containerUserMail';
+  containerUserEmail.className = 'containerUserEmail';
   const userEmail = document.createElement('p');
   userEmail.textContent = 'Mario';
   const containerUserIconPost = document.createElement('div');
@@ -38,7 +38,7 @@ function post() {
   const containerFooterPost = document.createElement('div');
   containerFooterPost.className = 'containerFooterPost';
   const containerNumberOfLikes = document.createElement('div');
-  containerNumberOfLikes.classList = 'containerUserEmail';
+  containerNumberOfLikes.className = 'containerNumberOfLikes';
   const numberOfLikes = document.createElement('p');
   numberOfLikes.textContent = '2';
   const containerLikesIcon = document.createElement('div');
@@ -56,13 +56,13 @@ function post() {
   btnNewPost.id = 'btnNewPost';
 
   containerLogoPost.append(logoPost);
-  containerUserIcon.append(userIcon);
+  containerUserIconPost.append(userIconPost);
   containerUserEmail.append(userEmail);
   containerUserIcon.append(userIcon);
   containerFooterPost.append(containerNumberOfLikes, containerLikesIcon);
   containerNumberOfLikes.append(numberOfLikes);
   containerLikesIcon.append(likesIcon);
-  containerHeaderPost.append(containerUserEmail, containerUserIcon);
+  containerHeaderPost.append(containerUserIconPost, containerUserEmail);
   containerPost.append(txtPost);
   containerBtnNewPost.append(btnNewPost);
 
