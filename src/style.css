@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap');
 body {
     background-color: #DB0001;
     margin: 0;
@@ -49,7 +50,6 @@ body {
 }
 
 h1 {
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap');
     font-family: 'Inter', sans-serif;
     font-size: 2rem;
     color: #FFFFFF;
@@ -65,6 +65,7 @@ h2 {
     font-size: 1rem;
     font-family: 'Inter', sans-serif;
     color: white;
+    letter-spacing: 2px;
 }
 
 .input {
@@ -75,12 +76,14 @@ h2 {
     border: 1px solid #000000;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 34px;
-    font-size: 30px;
+    font-size: 20px;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
-/* Contenedor boton iniciar*/
+/* Contenedor boton iniciar
 .containerBtnLogin {}
-
+*/
 button.button {
     display: flex;
     justify-content: center;
@@ -99,9 +102,9 @@ button.button {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-/* Contenedor boton google */
+/* Contenedor boton google 
 .containerBtnGoogle {}
-
+*/
 .buttonGoogle {
     display: flex;
     flex-wrap: wrap;
@@ -137,55 +140,17 @@ button.button {
 }
 
 
-/* Agregar estilos visuales al boton de google*/
-
-/*.google-btn {
-  width: 184px;
-  height: 42px;
-  background-color: #4285f4;
-  border-radius: 2px;
-  box-shadow: 0 3px 4px 0 rgba(0,0,0,.25); 
-}
-.google-btn .google-icon-wrapper {
-    position: absolute;
-    margin-top: 1px;
-    margin-left: 1px;
-    width: 40px;
-    height: 40px;
-    border-radius: 2px;
-    background-color: #fff;
-  }
-  .google-btn .google-icon {
-    position: absolute;
-    margin-top: 11px;
-    margin-left: 11px;
-    width: 18px;
-    height: 18px;
-  }
-  .google-btn .btn-text {
-    float: right;
-    margin: 11px 11px 0 0;
-    color: #F7F7F7;
-    font-size: 14px;
-    letter-spacing: 0.2px;
-    font-family: "Roboto";
-  }*/
-
 /* Vista error */
 .containerError {
     display: flex;
     justify-content: center;
+    width: 100%;
+    margin-top: 2%;
 }
 
 .imgError {
     width: 80%;
-}
 
-/* parrafo error */
-.containerError {
-    width: 100%;
-    display: flex;
-    margin-top: 2%;
 }
 
 #textError {
@@ -216,12 +181,10 @@ button.button {
 .containerBtnEnter {
     margin-top: 2rem;
 }
-
+/*
 .containarImgWelcome {
-
-
 }
-
+*/
 #imgWelcome{
     width: 100%; 
     margin-top: 2rem;   
@@ -242,11 +205,11 @@ button.button {
     display: flex;
     justify-content: center;
     margin-bottom: 5%;
-
 }
+/*
 .containerLogoPost {
 
-}
+}*/
 .logoPost {
     margin-top: 5%;
     margin-bottom: 5%;
@@ -264,9 +227,9 @@ button.button {
 }
 .containerMain {
     display: flex;
-    flex-direction: column;
-    
+    flex-direction: column;   
 }
+/*
 .containerHeaderPost{
     
 }
@@ -290,7 +253,7 @@ button.button {
 }
 .containerLikesIcon{
 
-}
+}*/
 #likesIcon{
     width: 5%;
     
@@ -300,12 +263,15 @@ button.button {
     display: flex;
     
 }
+/*
 .containerBtnNewPost{
     
 }
+*/
 #btnNewPost{
     font-size: 4rem;
     border-radius: 100%;
     padding-left: 1rem;
     padding-right: 1rem;
 }
+

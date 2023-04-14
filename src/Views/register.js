@@ -1,5 +1,5 @@
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../lib/index.js';
+import { createUserWithEmailAndPassword } from '../lib/firebase-service.js';
+// import { auth } from '../lib/index.js';
 
 function register(navigateTo) {
   const section = document.createElement('article');
@@ -68,7 +68,6 @@ function register(navigateTo) {
       try {
         // eslint-disable-next-line max-len
         const userCredential = await createUserWithEmailAndPassword(
-          auth,
           inputMail.value,
           inputPass.value,
         );
