@@ -41,6 +41,7 @@ function post() {
   containerNumberOfLikes.className = 'containerNumberOfLikes';
   const numberOfLikes = document.createElement('p');
   numberOfLikes.textContent = '2';
+  numberOfLikes.id = 'numberOfLikes';
   const containerLikesIcon = document.createElement('div');
   containerLikesIcon.className = 'containerLikesIcon';
   const likesIcon = document.createElement('img');
@@ -49,8 +50,6 @@ function post() {
   // Container menu
   const containerMenu = document.createElement('div');
   containerMenu.className = 'containerMenu';
-  const containerBtnNewPost = document.createElement('div');
-  containerBtnNewPost.className = 'containerBtnNewPost';
   const btnNewPost = document.createElement('button');
   btnNewPost.textContent = '+';
   btnNewPost.id = 'btnNewPost';
@@ -64,11 +63,10 @@ function post() {
   containerLikesIcon.append(likesIcon);
   containerHeaderPost.append(containerUserIconPost, containerUserEmail);
   containerPost.append(txtPost);
-  containerBtnNewPost.append(btnNewPost);
 
   containerHeader.append(containerLogoPost, containerUserIcon);
   containerMain.append(containerHeaderPost, containerPost, containerFooterPost);
-  containerMenu.append(containerBtnNewPost);
+  containerMenu.append(btnNewPost);
   section.append(containerHeader, containerMain, containerMenu);
 
   document.body.style.backgroundColor = '#262523';

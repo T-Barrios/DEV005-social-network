@@ -1,5 +1,6 @@
 import { signInWithEmailAndPassword, signInWithPopup } from '../lib/firebase-service';
 // import { auth } from '../lib/index.js';
+import {onAuthStateChanged } fr
 
 function login(navigateTo) {
   const section = document.createElement('section');
@@ -121,6 +122,16 @@ function login(navigateTo) {
       console.log(userCredential);
       // aqui va la ruta para post
       navigateTo('/post');
+
+      onAuthStateChanged(auth, async (user) => {
+        try {
+          if (user) {
+            navigateTo('/post');
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      });
     } catch (error) {
       if (error.code === 'auth/user-not-found') {
         textError.innerHTML = 'Usuario no encontrado';

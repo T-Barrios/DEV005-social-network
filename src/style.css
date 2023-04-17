@@ -281,28 +281,32 @@ button.button {
 
 }
 .containerFooterPost{
-    background-color: lightcoral;
     display: flex;
     align-items: center;
-    flex-direction: row-reverse
-
+    flex-direction: row-reverse;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
 }
 .containerNumberOfLikes{
-    background-color: chartreuse;
-
+    border-bottom-right-radius: 8px;
 }
 .containerLikesIcon{
-    background-color: cornflowerblue;
+    display: flex;
 
 }
+#numberOfLikes{
+    margin: 0;
+    font-weight: bold;
+}
 #likesIcon{
-    width: 15px;
+    width: 18px;
     
 }
 .containerMenu{
-    background-color: blue;
     display: flex;
-    
+    position: absolute;
+    top: 85%;
+    left: 10%;
 }
 /*
 .containerBtnNewPost{
