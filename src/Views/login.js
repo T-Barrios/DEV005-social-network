@@ -1,6 +1,7 @@
+import { onAuthStateChanged } from 'firebase/auth';
 import { signInWithEmailAndPassword, signInWithPopup } from '../lib/firebase-service';
-// import { auth } from '../lib/index.js';
-import {onAuthStateChanged } fr
+import { auth } from '../lib/index.js';
+// import { onAuthStateChanged } from '../lib/firebase-service';
 
 function login(navigateTo) {
   const section = document.createElement('section');
@@ -109,6 +110,20 @@ function login(navigateTo) {
   article.append(logoLogin);
   section.append(article, containerMainContent);
 
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/firebase.User
+      const uid = user.uid;
+      console.log('este es el USER: ', user);
+      console.log('y este no sé (uid): ', uid);
+      // ...
+    } else {
+      console.log('sign out');
+      // ...
+    }
+  });
+
   buttonLogin.addEventListener('click', async (e) => {
     e.preventDefault();
     console.log(inputMail.value, inputPass.value);
@@ -123,7 +138,7 @@ function login(navigateTo) {
       // aqui va la ruta para post
       navigateTo('/post');
 
-      onAuthStateChanged(auth, async (user) => {
+      /* onAuthStateChanged(auth, async (user) => {
         try {
           if (user) {
             navigateTo('/post');
@@ -131,7 +146,7 @@ function login(navigateTo) {
         } catch (error) {
           console.log(error);
         }
-      });
+      }); */
     } catch (error) {
       if (error.code === 'auth/user-not-found') {
         textError.innerHTML = 'Usuario no encontrado';

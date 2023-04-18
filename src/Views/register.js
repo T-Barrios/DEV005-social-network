@@ -26,22 +26,26 @@ function register(navigateTo) {
   const inputMail = document.createElement('input');
   inputMail.className = 'input';
   inputMail.type = 'email';
+  inputMail.id = 'inputMail';
   const textPass = document.createElement('h2');
   textPass.textContent = 'Contraseña';
   const inputPass = document.createElement('input');
   inputPass.className = 'input';
   inputPass.type = 'password';
+  inputPass.id = 'inputPass';
   const textPassConfirm = document.createElement('h2');
   textPassConfirm.textContent = 'Confirmar contraseña';
   const inputPassConfirm = document.createElement('input');
   inputPassConfirm.className = 'input';
   inputPassConfirm.type = 'password';
+  inputPassConfirm.id = 'inputPassConfirm';
   // Contenedor boton iniciar
   const containerBtnRegister = document.createElement('div');
   containerBtnRegister.className = 'containerBtnRegister';
   const buttonRegister = document.createElement('button');
   buttonRegister.className = 'button';
   buttonRegister.textContent = 'REGISTRAR';
+  buttonRegister.id = 'buttonRegister';
 
   // Contenedor parrafo error
   const containerError = document.createElement('div');
