@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap');
 body {
     background-color: #DB0001;
     margin: 0;
@@ -49,7 +50,6 @@ body {
 }
 
 h1 {
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap');
     font-family: 'Inter', sans-serif;
     font-size: 2rem;
     color: #FFFFFF;
@@ -65,6 +65,13 @@ h2 {
     font-size: 1rem;
     font-family: 'Inter', sans-serif;
     color: white;
+    letter-spacing: 2px;
+}
+
+p {
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    color: white;
 }
 
 .input {
@@ -75,12 +82,14 @@ h2 {
     border: 1px solid #000000;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 34px;
-    font-size: 30px;
+    font-size: 20px;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
-/* Contenedor boton iniciar*/
+/* Contenedor boton iniciar
 .containerBtnLogin {}
-
+*/
 button.button {
     display: flex;
     justify-content: center;
@@ -99,9 +108,9 @@ button.button {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-/* Contenedor boton google */
+/* Contenedor boton google 
 .containerBtnGoogle {}
-
+*/
 .buttonGoogle {
     display: flex;
     flex-wrap: wrap;
@@ -121,7 +130,7 @@ button.button {
 
 .imgGoogle {
     width: 10%;
-}
+} 
 
 /* Container para crear cuenta*/
 .containerCreateAccount {
@@ -137,56 +146,17 @@ button.button {
 }
 
 
-/* Agregar estilos visuales al boton de google*/
-
-/*.google-btn {
-  width: 184px;
-  height: 42px;
-  background-color: #4285f4;
-  border-radius: 2px;
-  box-shadow: 0 3px 4px 0 rgba(0,0,0,.25); 
-}
-.google-btn .google-icon-wrapper {
-    position: absolute;
-    margin-top: 1px;
-    margin-left: 1px;
-    width: 40px;
-    height: 40px;
-    border-radius: 2px;
-    background-color: #fff;
-  }
-  .google-btn .google-icon {
-    position: absolute;
-    margin-top: 11px;
-    margin-left: 11px;
-    width: 18px;
-    height: 18px;
-  }
-  .google-btn .btn-text {
-    float: right;
-    margin: 11px 11px 0 0;
-    color: #F7F7F7;
-    font-size: 14px;
-    letter-spacing: 0.2px;
-    font-family: "Roboto";
-  }*/
-
 /* Vista error */
 .containerError {
     display: flex;
     justify-content: center;
+    width: 100%;
+    margin-top: 2%;
 }
 
 .imgError {
     width: 80%;
 
-}
-
-/* parrafo error */
-.containerError {
-    width: 100%;
-    display: flex;
-    margin-top: 2%;
 }
 
 #textError {
@@ -217,12 +187,10 @@ button.button {
 .containerBtnEnter {
     margin-top: 2rem;
 }
-
+/*
 .containarImgWelcome {
-
-
 }
-
+*/
 #imgWelcome{
     width: 100%; 
     margin-top: 2rem;   
@@ -235,7 +203,7 @@ button.button {
 #txtEnter{
     text-align: center;
     margin-top: 2rem;
-}
+} 
 
 /* vista post */
 .containerHeader {
@@ -243,9 +211,11 @@ button.button {
     display: flex;
     justify-content: center;
     margin-bottom: 5%;
-
 }
+
 .containerLogoPost {
+    display: flex;
+    justify-content: center;
 
 }
 .logoPost {
@@ -254,60 +224,101 @@ button.button {
     width: 85%;    
 }
 .containerUserIcon {
-    width: 5%;
-    
+    display: flex;
+    justify-content: center;    
 }
 #userIcon {
-    margin-top: 5%;
-    margin-bottom: 5%;
+    display: flex;
+    align-self: center;
     width: 50%;
+    height: 70%;
+    background-color: #D9D9D9;  
+    border-radius: 100%;  
+    padding: 0.5rem;
+    border: 1px solid #000000;
     
 }
 .containerMain {
+    background-color: #575151;
     display: flex;
-    flex-direction: column;
-    
+    flex-direction: column; 
+    width: 80%; 
+    border: 1px solid #000000;
+    border-radius: 8px; 
 }
+
 .containerHeaderPost{
-    
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 .containerUserEmail{
-
+    display: flex;
+    width: 100%;
+    margin-left: 2%;
+    font-weight: bolder;
 }
+
 .containerUserIconPost{
-
+    display: flex;
+    height: fit-content;
+    align-items: center;
+    margin-left: 1%;
 }
+
 #userIconPost{
-
-}
+    display: flex;
+    width: 30px;
+    background-color: #D9D9D9;  
+    border-radius: 100%;  
+    padding: 0.5rem;
+    border: 1px solid #000000;
+} 
 .containerPost{
+    margin-left: 4%;
+    margin-right: 4%;
 
 }
 .containerFooterPost{
-
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
 }
 .containerNumberOfLikes{
-
+    border-bottom-right-radius: 8px;
 }
 .containerLikesIcon{
+    display: flex;
 
 }
+#numberOfLikes{
+    margin: 0;
+    font-weight: bold;
+}
 #likesIcon{
-    width: 5%;
+    width: 18px;
     
 }
 .containerMenu{
-    background-color: blue;
     display: flex;
-    
+    position: absolute;
+    top: 85%;
+    left: 10%;
 }
+/*
 .containerBtnNewPost{
     
 }
+*/
 #btnNewPost{
     font-size: 4rem;
     border-radius: 100%;
     padding-left: 1rem;
     padding-right: 1rem;
+    background-color: #DB0001;
+    border: 1px solid #000000;
+    color: #FFFFFF;
 }
-

@@ -1,8 +1,7 @@
-import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-
-import { async } from 'regenerator-runtime';
-// import botonMaravillodeGoogle from './login/buttonGoogle.js';
+import { onAuthStateChanged } from 'firebase/auth';
+import { signInWithEmailAndPassword, signInWithPopup } from '../lib/firebase-service';
 import { auth } from '../lib/index.js';
+// import { onAuthStateChanged } from '../lib/firebase-service';
 
 function login(navigateTo) {
   const section = document.createElement('section');
@@ -62,7 +61,7 @@ function login(navigateTo) {
   buttonLogin.type = 'button';
 
   // Contenedor boton google
-  const containerBtnGoogle = document.createElement('id');
+  const containerBtnGoogle = document.createElement('div');
   containerBtnGoogle.className = 'containerBtnGoogle';
   const buttonGoogle = document.createElement('button');
   buttonGoogle.className = 'buttonGoogle';
@@ -111,6 +110,20 @@ function login(navigateTo) {
   article.append(logoLogin);
   section.append(article, containerMainContent);
 
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/firebase.User
+      const uid = user.uid;
+      console.log('este es el USER: ', user);
+      console.log('y este no sé (uid): ', uid);
+      // ...
+    } else {
+      console.log('sign out');
+      // ...
+    }
+  });
+
   buttonLogin.addEventListener('click', async (e) => {
     e.preventDefault();
     console.log(inputMail.value, inputPass.value);
@@ -118,18 +131,29 @@ function login(navigateTo) {
     try {
       // eslint-disable-next-line max-len
       const userCredential = await signInWithEmailAndPassword(
-        auth,
         inputMail.value,
         inputPass.value,
       );
       console.log(userCredential);
       // aqui va la ruta para post
       navigateTo('/post');
+
+      /* onAuthStateChanged(auth, async (user) => {
+        try {
+          if (user) {
+            navigateTo('/post');
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      }); */
     } catch (error) {
       if (error.code === 'auth/user-not-found') {
         textError.innerHTML = 'Usuario no encontrado';
       } else if (error.code === 'auth/wrong-password') {
         textError.innerHTML = 'Contraseña equivocada';
+      } else if (error.code === 'auth/missing-password') {
+        textError.innerHTML = 'Ingrese su contraseña';
       } else if (error.code === 'auth/invalid-email') {
         textError.innerHTML = 'Usuario no válido';
       } else if (error.code === 'auth/internal-error') {
@@ -142,10 +166,8 @@ function login(navigateTo) {
 
   // Iniciar con google
   buttonGoogle.addEventListener('click', async () => {
-    const provider = new GoogleAuthProvider();
-
     try {
-      const credentials = await signInWithPopup(auth, provider);
+      const credentials = await signInWithPopup();
       console.log('google', credentials);
       navigateTo('/post');
     } catch (error) {
