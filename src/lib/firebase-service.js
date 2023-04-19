@@ -2,6 +2,7 @@ import {
 // eslint-disable-next-line max-len
   signInWithEmailAndPassword as firebaseSignInWithEmailAndPassword, signInWithPopup as firebaseSignInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword as firebasecreateUserWithEmailAndPassword,
   onAuthStateChanged as firebaseOnAuthStateChanged,
+  signOut as firebasesignOut,
 } from 'firebase/auth';
 
 import { auth } from './index';
@@ -31,4 +32,9 @@ export const createUserWithEmailAndPassword = (email, password) => firebasecreat
   auth,
   email,
   password,
+);
+
+// SignOut
+export const signOut = () => firebasesignOut(
+  auth,
 );

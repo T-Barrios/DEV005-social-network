@@ -175,6 +175,7 @@ function login(navigateTo) {
     }
   });
 
+  document.body.style.backgroundColor = '#DB0001';
   return section;
 }
 export default login;
