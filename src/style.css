@@ -221,11 +221,13 @@ button.button {
 .logoPost {
     margin-top: 5%;
     margin-bottom: 5%;
-    width: 85%;    
+    width: 85%;  
 }
 .containerUserIcon {
     display: flex;
-    justify-content: center;    
+    justify-content: center; 
+    margin-top: 1%;
+    margin-bottom: 1%;   
 }
 #userIcon {
     display: flex;
@@ -235,8 +237,7 @@ button.button {
     background-color: #D9D9D9;  
     border-radius: 100%;  
     padding: 0.5rem;
-    border: 1px solid #000000;
-    
+    border: 1px solid #000000;    
 }
 .containerMain {
     background-color: #575151;
@@ -252,6 +253,7 @@ button.button {
     align-items: center;
     flex-direction: row;
     justify-content: space-evenly;
+    margin-top: 2%;
 }
 .containerUserEmail{
     display: flex;
@@ -264,7 +266,7 @@ button.button {
     display: flex;
     height: fit-content;
     align-items: center;
-    margin-left: 1%;
+    margin-left: 2%;
 }
 
 #userIconPost{
@@ -286,6 +288,8 @@ button.button {
     flex-direction: row-reverse;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
+    margin-right: 2%;
+    margin-bottom: 2%;
 }
 .containerNumberOfLikes{
     border-bottom-right-radius: 8px;
@@ -321,4 +325,54 @@ button.button {
     background-color: #DB0001;
     border: 1px solid #000000;
     color: #FFFFFF;
+}
+
+/* Estilos de modal */
+.modal {
+    display: none;  
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0; 
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modalContent {
+    background-color: #575151;
+    background-color: #D9D9D9;
+    margin: 18.5vw auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 3px solid black;
+    width: 50%;
+    border-radius: 8px;
+}
+
+.close {
+    color: black;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+.close:hover,
+.close:focus {
+  color:  red;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.textModal{
+    color: black;
+    font-weight: bold;
+    margin-left: 5%;
+}
+
+.textModal:hover,
+.textModal:focus {
+  color:  red;
+  text-decoration: none;
+  cursor: pointer;
 }
