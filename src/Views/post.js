@@ -1,4 +1,5 @@
-import { signOut } from "../lib/firebase-service";
+import { auth } from '../lib';
+import { signOut } from '../lib/firebase-service';
 
 function post(navigateTo) {
   const section = document.createElement('article');
@@ -14,7 +15,7 @@ function post(navigateTo) {
   const containerUserIcon = document.createElement('div');
   containerUserIcon.className = 'containerUserIcon';
   const userIcon = document.createElement('img');
-  userIcon.src = './user icon/icon-green-mushroom.png';
+  userIcon.src = './user-icon/icon-green-mushroom.png';
   userIcon.id = 'userIcon';
   userIcon.className = 'modalOpen';
   // Container main
@@ -30,7 +31,7 @@ function post(navigateTo) {
   const containerUserIconPost = document.createElement('div');
   containerUserIconPost.className = 'containerUserIconPost';
   const userIconPost = document.createElement('img');
-  userIconPost.src = './user icon/icon-red-mushroom.png';
+  userIconPost.src = './user-icon/icon-red-mushroom.png';
   userIconPost.id = 'userIconPost';
   // Container post
   const containerPost = document.createElement('div');
@@ -92,6 +93,12 @@ function post(navigateTo) {
   containerMenu.append(btnNewPost);
   section.append(containerHeader, containerMain, containerMenu);
 
+  btnLogOut.addEventListener('click', async () => {
+    await signOut(auth);
+    console.log('user signed out');
+    navigateTo('/');
+  });
+
   // funciones click modal
   userIcon.onclick = function () {
     containerModal.style.display = 'block';
@@ -106,12 +113,6 @@ function post(navigateTo) {
       containerModal.style.display = 'none';
     }
   };
-
-  btnLogOut.addEventListener('click', async () => {
-    await signOut();
-    console.log('user signed out');
-    navigateTo('/');
-  });
 
   document.body.style.backgroundColor = '#262523';
   return section;

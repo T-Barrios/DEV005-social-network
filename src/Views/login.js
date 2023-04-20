@@ -110,13 +110,15 @@ function login(navigateTo) {
   article.append(logoLogin);
   section.append(article, containerMainContent);
 
-  onAuthStateChanged(auth, (user) => {
+  const validate = onAuthStateChanged(auth, (user) => {
+    console.log(user);
     if (user) {
       // User is signed in, see docs for a list of available properties
       // https://firebase.google.com/docs/reference/js/firebase.User
       const uid = user.uid;
       console.log('este es el USER: ', user);
       console.log('y este no sé (uid): ', uid);
+      navigateTo('/post');
       // ...
     } else {
       console.log('sign out');
@@ -135,18 +137,8 @@ function login(navigateTo) {
         inputPass.value,
       );
       console.log(userCredential);
+      validate();
       // aqui va la ruta para post
-      navigateTo('/post');
-
-      /* onAuthStateChanged(auth, async (user) => {
-        try {
-          if (user) {
-            navigateTo('/post');
-          }
-        } catch (error) {
-          console.log(error);
-        }
-      }); */
     } catch (error) {
       if (error.code === 'auth/user-not-found') {
         textError.innerHTML = 'Usuario no encontrado';
@@ -169,7 +161,7 @@ function login(navigateTo) {
     try {
       const credentials = await signInWithPopup();
       console.log('google', credentials);
-      navigateTo('/post');
+      validate();
     } catch (error) {
       console.log('google error', error);
     }

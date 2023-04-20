@@ -5,7 +5,8 @@ import {
   signOut as firebasesignOut,
 } from 'firebase/auth';
 
-import { auth } from './index';
+import { auth, db } from './index';
+
 // login with email and password
 export const signInWithEmailAndPassword = (email, password) => firebaseSignInWithEmailAndPassword(
   auth,
