@@ -1,4 +1,6 @@
-function post() {
+import { signOut } from "../lib/firebase-service";
+
+function post(navigateTo) {
   const section = document.createElement('article');
   section.className = 'containerSection';
   // Contenedor header post
@@ -14,6 +16,7 @@ function post() {
   const userIcon = document.createElement('img');
   userIcon.src = './user icon/icon-green-mushroom.png';
   userIcon.id = 'userIcon';
+  userIcon.className = 'modalOpen';
   // Container main
   const containerMain = document.createElement('section');
   containerMain.className = 'containerMain';
@@ -54,10 +57,30 @@ function post() {
   btnNewPost.textContent = '+';
   btnNewPost.id = 'btnNewPost';
 
+  // modal. contenedor (div)
+  const containerModal = document.createElement('div');
+  containerModal.id = 'containerModal';
+  containerModal.className = 'modal';
+  // modal content div --> contiene: span (x que cierra) y texto de las opciones (logout)
+  const divModal = document.createElement('div');
+  divModal.className = 'modalContent';
+  const spanCloseModal = document.createElement('span');
+  spanCloseModal.innerHTML = '&times;';
+  spanCloseModal.className = 'close';
+  const btnLogOut = document.createElement('p');
+  btnLogOut.textContent = 'Cerrar Sesión';
+  btnLogOut.className = 'textModal';
+  const btnMyWall = document.createElement('p');
+  btnMyWall.textContent = ('Mis publicaciones');
+  btnMyWall.className = 'textModal';
+
+  divModal.append(spanCloseModal, btnLogOut, btnMyWall);
+  containerModal.append(divModal);
+
   containerLogoPost.append(logoPost);
   containerUserIconPost.append(userIconPost);
   containerUserEmail.append(userEmail);
-  containerUserIcon.append(userIcon);
+  containerUserIcon.append(userIcon, containerModal);
   containerFooterPost.append(containerNumberOfLikes, containerLikesIcon);
   containerNumberOfLikes.append(numberOfLikes);
   containerLikesIcon.append(likesIcon);
@@ -69,8 +92,28 @@ function post() {
   containerMenu.append(btnNewPost);
   section.append(containerHeader, containerMain, containerMenu);
 
-  document.body.style.backgroundColor = '#262523';
+  // funciones click modal
+  userIcon.onclick = function () {
+    containerModal.style.display = 'block';
+  };
 
+  spanCloseModal.onclick = function () {
+    containerModal.style.display = 'none';
+  };
+
+  window.onclick = function (event) {
+    if (event.target === containerModal) {
+      containerModal.style.display = 'none';
+    }
+  };
+
+  btnLogOut.addEventListener('click', async () => {
+    await signOut();
+    console.log('user signed out');
+    navigateTo('/');
+  });
+
+  document.body.style.backgroundColor = '#262523';
   return section;
 }
 
