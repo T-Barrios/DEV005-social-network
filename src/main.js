@@ -1,8 +1,10 @@
+import { onAuthStateChanged } from 'firebase/auth';
 import login from './Views/login';
 import register from './Views/register';
 import error from './Views/error';
 import post from './Views/post';
 import welcome from './Views/welcome';
+import { auth } from './lib/index.js';
 
 const defaultRoute = '/';
 const root = document.getElementById('root');
@@ -38,3 +40,13 @@ window.onpopstate = () => {
   navigateTo(window.location.pathname);
 };
 navigateTo(window.location.pathname || defaultRoute);
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    navigateTo('/post');
+  } else if (window.location.pathname !== '/post' && user == null) {
+    navigateTo(window.location.pathname || defaultRoute);
+  } else {
+    navigateTo(defaultRoute);
+  }
+});

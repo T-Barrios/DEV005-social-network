@@ -37,6 +37,7 @@ function welcome(navigateTo) {
     navigateTo('/');
   });
 
+  document.body.style.backgroundColor = '#DB0001';
   return section;
 }
 
