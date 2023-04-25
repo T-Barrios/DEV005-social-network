@@ -105,22 +105,6 @@ function login(navigateTo) {
   article.append(logoLogin);
   section.append(article, containerMainContent);
 
-  /* validate() = onAuthStateChanged(auth, (user) => {
-    console.log(user);
-    if (user) {
-      // User is signed in, see docs for a list of available properties
-      // https://firebase.google.com/docs/reference/js/firebase.User
-      const uid = user.uid;
-      console.log('este es el USER: ', user);
-      console.log('y este no sé (uid): ', uid);
-      navigateTo('/post');
-      // ...
-    } else {
-      console.log('sign out');
-      // ...
-    }
-  }); */
-
   buttonLogin.addEventListener('click', async (e) => {
     e.preventDefault();
     console.log(inputMail.value, inputPass.value);
