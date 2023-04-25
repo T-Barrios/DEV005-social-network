@@ -1,9 +1,10 @@
 import {
-  addDoc, collection, doc, getDocs, updateDoc, onSnapshot, query,
+  addDoc, collection, doc, getDocs, updateDoc, onSnapshot, query, arrayRemove, arrayUnion, increment
 } from 'firebase/firestore';
 import { async } from 'regenerator-runtime';
 import { auth, db } from '../lib';
 import { signOut } from '../lib/firebase-service';
+// import { array } from 'yargs';
 
 function post() {
   const section = document.createElement('article');
@@ -101,6 +102,7 @@ function post() {
   // funciones click modal post
   btnNewPost.onclick = function () {
     containerModalPost.style.display = 'block';
+    textPost.value = '';
   };
 
   window.onclick = function (event) {
@@ -109,110 +111,98 @@ function post() {
     }
   };
 
+  // Dar like
+  const likeEvent = (likesIcon) => {
+    const likeRef = doc(db, 'post', 'n9gbEgYtdYKTEPSXkQB0');
+    likesIcon.addEventListener('click', async () => {
+      await updateDoc(likeRef, {
+        like: increment(1),
+      });
+    });
+  };
+
   // Agregar post
   btnPublish.addEventListener('click', async () => {
     const docRef = await addDoc(collection(db, 'post'), {
       author: auth.currentUser.email,
       content: textPost.value,
-      like: 0,
+      like: [],
     });
-    // console.log('Document written with ID: ', docRef.id);
-    // console.log('texto', textPost.value);
+    console.log('Document written with ID: ', docRef.id);
+    console.log('texto', textPost.value);
     containerModalPost.style.display = 'none';
   });
 
+  // Agregar listener para nuevos posts
+  const getPosts = (callback) => {
+    const queryPost = query(collection(db, 'post'));
+    onSnapshot(queryPost, (querySnapshot) => {
+      const posts = [];
+      querySnapshot.forEach((snap) => {
+        console.log('snap data: ', snap.data());
+        posts.push(snap.data());
+      });
+      callback(posts);
+    });
+  };
+
   // Obtener todos los post
   async function getAllPosts() {
-    const querySnapshot = await getDocs(collection(db, 'post'));
-    querySnapshot.forEach((docs) => {
-      // doc.data() is never undefined for query doc snapshots
-      const docData = docs.data();
-      // console.log(docs.id, ' => ', docData.author);
-      // Container main
-      const containerMain = document.createElement('section');
-      containerMain.className = 'containerMain';
-      // Container header post
-      const containerHeaderPost = document.createElement('div');
-      containerHeaderPost.className = 'containerHeaderPost';
-      const containerUserEmail = document.createElement('div');
-      containerUserEmail.className = 'containerUserEmail';
-      const userEmail = document.createElement('p');
-      userEmail.textContent = docData.author;
-      const containerUserIconPost = document.createElement('div');
-      containerUserIconPost.className = 'containerUserIconPost';
-      const userIconPost = document.createElement('img');
-      userIconPost.src = './user-icon/icon-red-mushroom.png';
-      userIconPost.id = 'userIconPost';
-      // Container post
-      const containerPost = document.createElement('div');
-      containerPost.className = 'containerPost';
-      const txtPost = document.createElement('p');
-      txtPost.textContent = docData.content;
-      // Container footer post
-      const containerFooterPost = document.createElement('div');
-      containerFooterPost.className = 'containerFooterPost';
-      const containerNumberOfLikes = document.createElement('div');
-      containerNumberOfLikes.className = 'containerNumberOfLikes';
-      const numberOfLikes = document.createElement('p');
-      numberOfLikes.textContent = docData.like;
-      numberOfLikes.id = 'numberOfLikes';
-      const containerLikesIcon = document.createElement('div');
-      containerLikesIcon.className = 'containerLikesIcon';
-      const likesIcon = document.createElement('img');
-      likesIcon.src = './Img/icon-likes.png';
-      likesIcon.id = 'likesIcon';
+    getPosts((posts) => {
+      section.querySelectorAll('.containerMain').forEach((e) => e.remove());
+      posts.forEach((singlePost) => {
+        // doc.data() is never undefined for query doc snapshots
+        const docData = singlePost;
+        // console.log(docs.id, ' => ', docData.author);
+        // Container main
+        const containerMain = document.createElement('section');
+        containerMain.className = 'containerMain';
+        // Container header post
+        const containerHeaderPost = document.createElement('div');
+        containerHeaderPost.className = 'containerHeaderPost';
+        const containerUserEmail = document.createElement('div');
+        containerUserEmail.className = 'containerUserEmail';
+        const userEmail = document.createElement('p');
+        userEmail.textContent = docData.author;
+        const containerUserIconPost = document.createElement('div');
+        containerUserIconPost.className = 'containerUserIconPost';
+        const userIconPost = document.createElement('img');
+        userIconPost.src = './user-icon/icon-red-mushroom.png';
+        userIconPost.id = 'userIconPost';
+        // Container post
+        const containerPost = document.createElement('div');
+        containerPost.className = 'containerPost';
+        const txtPost = document.createElement('p');
+        txtPost.textContent = docData.content;
+        // Container footer post
+        const containerFooterPost = document.createElement('div');
+        containerFooterPost.className = 'containerFooterPost';
+        const containerNumberOfLikes = document.createElement('div');
+        containerNumberOfLikes.className = 'containerNumberOfLikes';
+        const numberOfLikes = document.createElement('p');
+        numberOfLikes.textContent = docData.like;
+        numberOfLikes.id = 'numberOfLikes';
+        const containerLikesIcon = document.createElement('div');
+        containerLikesIcon.className = 'containerLikesIcon';
+        const likesIcon = document.createElement('img');
+        likesIcon.src = './Img/icon-likes.png';
+        likesIcon.id = 'likesIcon';
 
-      // apendizaje de container main (post)
-      containerUserIconPost.append(userIconPost);
-      containerUserEmail.append(userEmail);
-      containerFooterPost.append(containerNumberOfLikes, containerLikesIcon);
-      containerNumberOfLikes.append(numberOfLikes);
-      containerLikesIcon.append(likesIcon);
-      containerHeaderPost.append(containerUserIconPost, containerUserEmail);
-      containerPost.append(txtPost);
-      containerMain.append(containerHeaderPost, containerPost, containerFooterPost);
-      section.append(containerMain);
-
-      // Dar like
-      const likeRef = doc(db, 'post', 'like');
-      likesIcon.addEventListener('click', async () => {
-        await updateDoc(likeRef, {
-          like: true,
-        });
+        // apendizaje de container main (post)
+        containerUserIconPost.append(userIconPost);
+        containerUserEmail.append(userEmail);
+        containerFooterPost.append(containerNumberOfLikes, containerLikesIcon);
+        containerNumberOfLikes.append(numberOfLikes);
+        containerLikesIcon.append(likesIcon);
+        containerHeaderPost.append(containerUserIconPost, containerUserEmail);
+        containerPost.append(txtPost);
+        containerMain.append(containerHeaderPost, containerPost, containerFooterPost);
+        section.append(containerMain);
+        likeEvent(likesIcon);
       });
     });
   }
   getAllPosts();
-  /*
-  async function queryListener() {
-    const queryPost = query(
-      collection(db, 'post'),
-    );
-    onSnapshot(queryPost, (querySnapshot) => {
-      console.log('query', querySnapshot);
-    });
-  }
-
-  queryListener(); */
-  // Agregar listener para nuevos posts
-  const queryPost = query(collection(db, 'post'));
-  onSnapshot(queryPost, (querySnapshot) => {
-    querySnapshot.forEach((snap) => {
-      console.log('snap data: ', snap.data());
-    });
-  });
-
-  /*
-  const queryPost = query(collection(db, 'post'));
-  onSnapshot(queryPost, (querySnapshot) => {
-    querySnapshot.docChanges().forEach((docs) => {
-       if (docs.type === 'added') {
-        const docData = docs.doc.data();
-        console.log(docs.doc.id, ' => ', docData.author);
-        getAllPosts(docs.doc);
-      }
-    });
-  }); */
 
   document.body.style.backgroundColor = '#262523';
   return section;
