@@ -3,13 +3,11 @@ body {
     background-color: #DB0001;
     margin: 0;
 }
-
 .containerSection {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
 /* Contenedor logo inicio */
 .containerLogoLogin {
     display: flex;
@@ -18,62 +16,52 @@ body {
     margin-bottom: 5%;
     width: 80%
 }
-
 .logoLogin {
     width: 70%;
 }
-
 .containerLogoRegister {
     background-color: white;
     display: flex;
     justify-content: center;
     margin-bottom: 5%;
 }
-
 .logoRegister {
     margin-top: 5%;
     margin-bottom: 5%;
     width: 85%;
 }
-
 /* Contenedor de titulo, imput y botones */
 .containerMainContent {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
 /* Contenedor título */
 .containerTitle {
     display: flex;
     justify-content: center;
 }
-
 h1 {
     font-family: 'Inter', sans-serif;
     font-size: 2rem;
     color: #FFFFFF;
     margin: auto;
 }
-
 /* Contenedor de inputs*/
 .containerInput {
     width: fit-content;
 }
-
 h2 {
     font-size: 1rem;
     font-family: 'Inter', sans-serif;
     color: white;
     letter-spacing: 2px;
 }
-
 p {
     font-size: 1rem;
     font-family: 'Inter', sans-serif;
     color: white;
 }
-
 .input {
     box-sizing: border-box;
     width: 310px;
@@ -86,7 +74,6 @@ p {
     padding-left: 1rem;
     padding-right: 1rem;
 }
-
 /* Contenedor boton iniciar
 .containerBtnLogin {}
 */
@@ -107,7 +94,6 @@ button.button {
     padding-right: 2rem;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-
 /* Contenedor boton google 
 .containerBtnGoogle {}
 */
@@ -127,11 +113,9 @@ button.button {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 34px;
 }
-
 .imgGoogle {
     width: 10%;
-} 
-
+}
 /* Container para crear cuenta*/
 .containerCreateAccount {
     display: flex;
@@ -140,12 +124,9 @@ button.button {
     height: min-content;
 
 }
-
 .createAccount {
     text-decoration: underline;
 }
-
-
 /* Vista error */
 .containerError {
     display: flex;
@@ -153,12 +134,10 @@ button.button {
     width: 100%;
     margin-top: 2%;
 }
-
 .imgError {
     width: 80%;
 
 }
-
 #textError {
     font-size: 1rem;
     background-color: #212121;
@@ -174,7 +153,6 @@ button.button {
     padding-bottom: 1rem;
     border-radius: 3%; */
 }
-
 /* Vista welcome */
 .containerWelcome {
     display: flex;
@@ -183,7 +161,6 @@ button.button {
     margin-left: 2rem;
     margin-right: 2rem;
 }
-
 .containerBtnEnter {
     margin-top: 2rem;
 }
@@ -195,16 +172,13 @@ button.button {
     width: 100%; 
     margin-top: 2rem;   
 }
-
 #txtWelcome{
     text-align: center;
 }
-
 #txtEnter{
     text-align: center;
     margin-top: 2rem;
-} 
-
+}
 /* vista post */
 .containerHeader {
     background-color: #DB0001;
@@ -212,7 +186,6 @@ button.button {
     justify-content: center;
     margin-bottom: 5%;
 }
-
 .containerLogoPost {
     display: flex;
     justify-content: center;
@@ -246,9 +219,7 @@ button.button {
     width: 80%; 
     border: 1px solid #000000;
     border-radius: 8px; 
-    margin-bottom: 3%;
 }
-
 .containerHeaderPost{
     display: flex;
     align-items: center;
@@ -262,14 +233,12 @@ button.button {
     margin-left: 2%;
     font-weight: bolder;
 }
-
 .containerUserIconPost{
     display: flex;
     height: fit-content;
     align-items: center;
     margin-left: 2%;
 }
-
 #userIconPost{
     display: flex;
     width: 30px;
@@ -277,7 +246,7 @@ button.button {
     border-radius: 100%;  
     padding: 0.5rem;
     border: 1px solid #000000;
-} 
+}
 .containerPost{
     margin-left: 4%;
     margin-right: 4%;
@@ -309,7 +278,7 @@ button.button {
 }
 .containerMenu{
     display: flex;
-    position: fixed;
+    position: absolute;
     top: 85%;
     left: 10%;
 }
@@ -327,7 +296,6 @@ button.button {
     border: 1px solid #000000;
     color: #FFFFFF;
 }
-
 /* Estilos de modal */
 .modal {
     display: none;  
@@ -340,7 +308,6 @@ button.button {
     overflow: auto; /* Enable scroll if needed */
     background-color: rgba(0,0,0,0.4);
 }
-
 .modalContent {
     background-color: #575151;
     background-color: #D9D9D9;
@@ -350,34 +317,29 @@ button.button {
     width: 50%;
     border-radius: 8px;
 }
-
 .close {
     color: black;
     float: right;
     font-size: 28px;
     font-weight: bold;
   }
-  
 .close:hover,
 .close:focus {
   color:  red;
   text-decoration: none;
   cursor: pointer;
 }
-
 .textModal{
     color: black;
     font-weight: bold;
     margin-left: 5%;
 }
-
 .textModal:hover,
 .textModal:focus {
   color:  red;
   text-decoration: none;
   cursor: pointer;
 }
-
 .modalContentPost{
     background-color: #575151;
     margin: 18.5vw auto; /* 15% from the top and centered */
@@ -387,7 +349,6 @@ button.button {
     height: 60vh;
     border-radius: 8px;
 }
-
 .textPost{
     background-color: #575151;
     width: 100%;
@@ -401,7 +362,6 @@ button.button {
 ::placeholder{
     color:#dfd8d8;
 }
-
 #btnPublish{
     position: absolute;
     left: 52%;
