@@ -1,6 +1,6 @@
-import { onAuthStateChanged } from 'firebase/auth';
 import { signInWithEmailAndPassword, signInWithPopup } from '../lib/firebase-service';
-import { auth } from '../lib/index.js';
+// import { auth } from '../lib/index.js';
+
 // import { onAuthStateChanged } from '../lib/firebase-service';
 
 function login(navigateTo) {
@@ -85,11 +85,6 @@ function login(navigateTo) {
     navigateTo('/register');
   });
 
-  buttonLogin.addEventListener('click', () => {
-    console.log(inputMail.value);
-    console.log(inputPass.value);
-  });
-
   containerTitle.append(titleLogin);
   containerInput.append(textMail, inputMail, textPass, inputPass);
   containerBtnLogin.append(buttonLogin);
@@ -110,22 +105,6 @@ function login(navigateTo) {
   article.append(logoLogin);
   section.append(article, containerMainContent);
 
-  const validate = onAuthStateChanged(auth, (user) => {
-    console.log(user);
-    if (user) {
-      // User is signed in, see docs for a list of available properties
-      // https://firebase.google.com/docs/reference/js/firebase.User
-      const uid = user.uid;
-      console.log('este es el USER: ', user);
-      console.log('y este no sé (uid): ', uid);
-      navigateTo('/post');
-      // ...
-    } else {
-      console.log('sign out');
-      // ...
-    }
-  });
-
   buttonLogin.addEventListener('click', async (e) => {
     e.preventDefault();
     console.log(inputMail.value, inputPass.value);
@@ -137,7 +116,7 @@ function login(navigateTo) {
         inputPass.value,
       );
       console.log(userCredential);
-      validate();
+
       // aqui va la ruta para post
     } catch (error) {
       if (error.code === 'auth/user-not-found') {
@@ -161,7 +140,6 @@ function login(navigateTo) {
     try {
       const credentials = await signInWithPopup();
       console.log('google', credentials);
-      validate();
     } catch (error) {
       console.log('google error', error);
     }
