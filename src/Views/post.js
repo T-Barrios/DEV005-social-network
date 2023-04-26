@@ -1,5 +1,5 @@
 import {
-  addDoc, collection, doc, getDocs, updateDoc, onSnapshot, query, arrayRemove, arrayUnion, increment
+  addDoc, collection, doc, getDocs, updateDoc, onSnapshot, query, arrayRemove, arrayUnion, increment,
 } from 'firebase/firestore';
 import { async } from 'regenerator-runtime';
 import { auth, db } from '../lib';
@@ -58,15 +58,21 @@ function post() {
   divModalPost.className = 'modalContentPost';
   const textPost = document.createElement('textarea');
   textPost.className = 'textPost';
-  textPost.placeholder = 'Hola, que hace?';
+  textPost.placeholder = '¿Hola, qué hace?';
   textPost.required = 'true';
+  const divNoTextAlert = document.createElement('div');
+  divNoTextAlert.className = 'divNoTextAlert';
+  const noTextAlert = document.createElement('p');
+  noTextAlert.textContent = 'Debe ingresar un texto';
+  noTextAlert.id = 'noTextAlert';
   const btnPublish = document.createElement('button');
   btnPublish.textContent = 'Publicar';
   btnPublish.id = 'btnPublish';
   btnPublish.className = 'button';
   btnPublish.type = 'submit';
 
-  divModalPost.append(textPost, btnPublish);
+  divNoTextAlert.append(noTextAlert);
+  divModalPost.append(textPost, btnPublish, divNoTextAlert);
   containerModalPost.append(divModalPost);
 
   divModal.append(spanCloseModal, btnLogOut, btnMyWall);
@@ -101,6 +107,7 @@ function post() {
 
   // funciones click modal post
   btnNewPost.onclick = function () {
+    noTextAlert.style.display = 'none';
     containerModalPost.style.display = 'block';
     textPost.value = '';
   };
@@ -123,15 +130,26 @@ function post() {
 
   // Agregar post
   btnPublish.addEventListener('click', async () => {
-    const docRef = await addDoc(collection(db, 'post'), {
-      author: auth.currentUser.email,
-      content: textPost.value,
-      like: [],
-    });
-    console.log('Document written with ID: ', docRef.id);
-    console.log('texto', textPost.value);
-    containerModalPost.style.display = 'none';
+    if (textPost.value === '') {
+      noTextAlert.style.display = 'block';
+      console.log('post vacio');
+    } else {
+      noTextAlert.style.display = 'none';
+      const docRef = await addDoc(collection(db, 'post'), {
+        author: auth.currentUser.email,
+        content: textPost.value,
+        like: [],
+      });
+      console.log('Document written with ID: ', docRef.id);
+      console.log('texto', textPost.value);
+      containerModalPost.style.display = 'none';
+    }
   });
+
+  /*  pedir OH
+  if (textPost.value.length !== '') {
+    noTextAlert.style.display = 'none';
+  } */
 
   // Agregar listener para nuevos posts
   const getPosts = (callback) => {

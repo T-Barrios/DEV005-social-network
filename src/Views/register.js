@@ -84,7 +84,7 @@ function register(navigateTo) {
         } else if (error.code === 'auth/invalid-email') {
           textError.innerHTML = 'Correo no válido';
         } else if (error.code === 'auth/weak-password') {
-          textError.innerHTML = 'La contraseña debe tener al menos 6 carácteres';
+          textError.innerHTML = 'La contraseña debe tener al menos 6 caracteres';
         } else if (error.code === 'auth/missing-password') {
           textError.innerHTML = 'Debe ingresar una contraseña';
         } else if (error.code === 'auth/missing-email') {
