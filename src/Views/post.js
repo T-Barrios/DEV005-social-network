@@ -120,10 +120,10 @@ function post() {
 
   // Dar like
   const likeEvent = (likesIcon) => {
-    const likeRef = doc(db, 'post', 'n9gbEgYtdYKTEPSXkQB0');
-    likesIcon.addEventListener('click', async () => {
+    likesIcon.addEventListener('click', async (e) => {
+      const likeRef = doc(db, 'post', e.target.dataset.id);
       await updateDoc(likeRef, {
-        like: increment(1),
+        like: arrayUnion(auth.currentUser.email),
       });
     });
   };
@@ -135,10 +135,12 @@ function post() {
       console.log('post vacio');
     } else {
       noTextAlert.style.display = 'none';
+      // necesito esto
       const docRef = await addDoc(collection(db, 'post'), {
         author: auth.currentUser.email,
         content: textPost.value,
         like: [],
+        date: Date.now(),
       });
       console.log('Document written with ID: ', docRef.id);
       console.log('texto', textPost.value);
@@ -158,7 +160,8 @@ function post() {
       const posts = [];
       querySnapshot.forEach((snap) => {
         console.log('snap data: ', snap.data());
-        posts.push(snap.data());
+        console.log('snap id: ', snap.id);
+        posts.push({ document: snap.data(), idDocument: snap.id });
       });
       callback(posts);
     });
@@ -170,8 +173,9 @@ function post() {
       section.querySelectorAll('.containerMain').forEach((e) => e.remove());
       posts.forEach((singlePost) => {
         // doc.data() is never undefined for query doc snapshots
-        const docData = singlePost;
-        // console.log(docs.id, ' => ', docData.author);
+        const docData = singlePost.document;
+        const onlyID= singlePost.idDocument;
+        console.log(singlePost);
         // Container main
         const containerMain = document.createElement('section');
         containerMain.className = 'containerMain';
@@ -192,6 +196,12 @@ function post() {
         containerPost.className = 'containerPost';
         const txtPost = document.createElement('p');
         txtPost.textContent = docData.content;
+        // improvisado de borrado
+        const buttonDelete = document.createElement('button');
+        buttonDelete.textContent = 'bottar';
+        buttonDelete.addEventListener('click', () => {
+          console.log('voy a borrar ', onlyID);
+        });
         // Container footer post
         const containerFooterPost = document.createElement('div');
         containerFooterPost.className = 'containerFooterPost';
@@ -205,6 +215,9 @@ function post() {
         const likesIcon = document.createElement('img');
         likesIcon.src = './Img/icon-likes.png';
         likesIcon.id = 'likesIcon';
+        // const docRef = collection(db, 'post');
+        likesIcon.dataset.id = singlePost.id;
+        console.log('nose na', singlePost.data);
 
         // apendizaje de container main (post)
         containerUserIconPost.append(userIconPost);
@@ -214,7 +227,7 @@ function post() {
         containerLikesIcon.append(likesIcon);
         containerHeaderPost.append(containerUserIconPost, containerUserEmail);
         containerPost.append(txtPost);
-        containerMain.append(containerHeaderPost, containerPost, containerFooterPost);
+        containerMain.append(containerHeaderPost, containerPost, containerFooterPost, buttonDelete);
         section.append(containerMain);
         likeEvent(likesIcon);
       });
