@@ -1,5 +1,5 @@
 import {
-  addDoc, collection, doc, getDocs, updateDoc, onSnapshot, query, arrayRemove, arrayUnion, increment,
+  addDoc, collection, doc, getDocs, updateDoc, onSnapshot, query, arrayRemove, arrayUnion,
 } from 'firebase/firestore';
 import { async } from 'regenerator-runtime';
 import { auth, db } from '../lib';
@@ -71,6 +71,31 @@ function post() {
   btnPublish.className = 'button';
   btnPublish.type = 'submit';
 
+  // modal editar
+  // modal. contenedor (div)
+  const containerModalEdit = document.createElement('div');
+  containerModalEdit.id = 'containerModalEdit';
+  containerModalEdit.className = 'modal';
+  // modal content div --> contiene boton editar/elimiar y el contenido
+  const divModalEdit = document.createElement('div');
+  divModalEdit.className = 'modalContentEdit';
+  const textEdit = document.createElement('textarea');
+  textEdit.className = 'textEdit';
+  textEdit.placeholder = 'editalo che';
+  const btnEdit = document.createElement('button');
+  btnEdit.textContent = 'Guardar';
+  btnEdit.id = 'btnEdit';
+  btnEdit.className = 'button';
+  btnEdit.type = 'submit';
+  const btnDelete = document.createElement('button');
+  btnDelete.textContent = 'Eliminar';
+  btnDelete.id = 'btnDelete';
+  btnDelete.className = 'button';
+  btnDelete.type = 'submit';
+
+  divModalEdit.append(textEdit, btnEdit, btnDelete);
+  containerModalEdit.append(divModalEdit);
+
   divNoTextAlert.append(noTextAlert);
   divModalPost.append(textPost, btnPublish, divNoTextAlert);
   containerModalPost.append(divModalPost);
@@ -83,7 +108,7 @@ function post() {
 
   containerHeader.append(containerLogoPost, containerUserIcon);
   containerMenu.append(btnNewPost);
-  section.append(containerHeader, containerMenu, containerModalPost);
+  section.append(containerHeader, containerMenu, containerModalPost, containerModalEdit);
 
   btnLogOut.addEventListener('click', async () => {
     await signOut(auth);
@@ -118,13 +143,33 @@ function post() {
     }
   };
 
+  // Abrir modar editar
+  const editEvent = (buttonModalEdit) => {
+    buttonModalEdit.addEventListener('click', () => {
+      console.log('abre modal');
+      containerModalEdit.style.display = 'block';
+    });
+  };
+
   // Dar like
-  const likeEvent = (likesIcon) => {
+  const likeEvent = (likesIcon, chayanne) => {
+    console.log('holiwiwiwiwiwiwiwi: ', chayanne);
     likesIcon.addEventListener('click', async (e) => {
-      const likeRef = doc(db, 'post', e.target.dataset.id);
-      await updateDoc(likeRef, {
-        like: arrayUnion(auth.currentUser.email),
-      });
+      if (!chayanne.includes(auth.currentUser.email)) {
+        // console.log('CHAYANNE: ', emailsList[0], auth.currentUser.email);
+        const likeRef = doc(db, 'post', e.target.dataset.id);
+        await updateDoc(likeRef, {
+          like: arrayUnion(auth.currentUser.email),
+        });
+        console.log('likeEvent');
+      } else {
+        console.log('DISLIKE');
+        const likeRef = doc(db, 'post', e.target.dataset.id);
+        await updateDoc(likeRef, {
+          like: arrayRemove(auth.currentUser.email),
+        });
+        console.log('dislikeEvent');
+      }
     });
   };
 
@@ -135,7 +180,7 @@ function post() {
       console.log('post vacio');
     } else {
       noTextAlert.style.display = 'none';
-      // necesito esto
+
       const docRef = await addDoc(collection(db, 'post'), {
         author: auth.currentUser.email,
         content: textPost.value,
@@ -172,9 +217,9 @@ function post() {
     getPosts((posts) => {
       section.querySelectorAll('.containerMain').forEach((e) => e.remove());
       posts.forEach((singlePost) => {
-        // doc.data() is never undefined for query doc snapshots
+        // constantes de la data del callback de la función getPosts
         const docData = singlePost.document;
-        const onlyID= singlePost.idDocument;
+        const onlyID = singlePost.idDocument;
         console.log(singlePost);
         // Container main
         const containerMain = document.createElement('section');
@@ -191,45 +236,58 @@ function post() {
         const userIconPost = document.createElement('img');
         userIconPost.src = './user-icon/icon-red-mushroom.png';
         userIconPost.id = 'userIconPost';
+        // botón editar/eliminar
+        const divButtonModalEdit = document.createElement('div');
+        divButtonModalEdit.className = 'divButtonModalEdit';
+        const buttonModalEdit = document.createElement('img');
+        buttonModalEdit.className = 'buttonModalEdit';
+        buttonModalEdit.src = './Img/btn-edit.png';
+        buttonModalEdit.id = 'buttonModalEdit';
         // Container post
         const containerPost = document.createElement('div');
         containerPost.className = 'containerPost';
         const txtPost = document.createElement('p');
         txtPost.textContent = docData.content;
-        // improvisado de borrado
-        const buttonDelete = document.createElement('button');
-        buttonDelete.textContent = 'bottar';
-        buttonDelete.addEventListener('click', () => {
-          console.log('voy a borrar ', onlyID);
-        });
         // Container footer post
         const containerFooterPost = document.createElement('div');
         containerFooterPost.className = 'containerFooterPost';
         const containerNumberOfLikes = document.createElement('div');
         containerNumberOfLikes.className = 'containerNumberOfLikes';
         const numberOfLikes = document.createElement('p');
-        numberOfLikes.textContent = docData.like;
+        numberOfLikes.textContent = docData.like.length;
         numberOfLikes.id = 'numberOfLikes';
         const containerLikesIcon = document.createElement('div');
         containerLikesIcon.className = 'containerLikesIcon';
         const likesIcon = document.createElement('img');
         likesIcon.src = './Img/icon-likes.png';
         likesIcon.id = 'likesIcon';
-        // const docRef = collection(db, 'post');
-        likesIcon.dataset.id = singlePost.id;
+
+        likesIcon.dataset.id = onlyID;
         console.log('nose na', singlePost.data);
 
         // apendizaje de container main (post)
+        if (auth.currentUser.email === docData.author) {
+          console.log('funciona modal');
+          divButtonModalEdit.append(buttonModalEdit);
+          containerHeaderPost.append(divButtonModalEdit);
+        } else {
+          console.log('modal vale callampa');
+        }
         containerUserIconPost.append(userIconPost);
         containerUserEmail.append(userEmail);
         containerFooterPost.append(containerNumberOfLikes, containerLikesIcon);
         containerNumberOfLikes.append(numberOfLikes);
         containerLikesIcon.append(likesIcon);
-        containerHeaderPost.append(containerUserIconPost, containerUserEmail);
+        containerHeaderPost.append(containerUserEmail, containerUserIconPost);
         containerPost.append(txtPost);
-        containerMain.append(containerHeaderPost, containerPost, containerFooterPost, buttonDelete);
+        containerMain.append(containerHeaderPost, containerPost, containerFooterPost);
         section.append(containerMain);
-        likeEvent(likesIcon);
+        console.log('usuario actual: ', auth.currentUser.email);
+        console.log('lista de emails: ', docData.like);
+        const chayanne = docData.like;
+
+        likeEvent(likesIcon, chayanne);
+        editEvent(buttonModalEdit);
       });
     });
   }
