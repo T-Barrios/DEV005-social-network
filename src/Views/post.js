@@ -84,7 +84,7 @@ function post() {
   divModalEdit.className = 'modalContentPost';
   const textEdit = document.createElement('textarea');
   textEdit.className = 'textPost';
-  textEdit.placeholder = 'editalo che';
+  textEdit.textContent = '';
   const containerButtonEdit = document.createElement('div');
   containerButtonEdit.className = 'containerButtonEdit';
   const btnEdit = document.createElement('button');
@@ -97,6 +97,30 @@ function post() {
   btnDelete.id = 'btnDelete';
   btnDelete.className = 'button';
   btnDelete.type = 'submit';
+
+  // modal. contenedor confirmar delete (div)
+  const containerDelete = document.createElement('div');
+  containerDelete.id = 'containerDelete';
+  containerDelete.className = 'modal';
+  // modal content div --> contiene: span (x que cierra) y texto de las opciones (logout)
+  const divDelete = document.createElement('div');
+  divDelete.className = 'modalContent';
+  const textConfirm = document.createElement('p');
+  textConfirm.textContent = '¿Estás seguro?';
+  textConfirm.id = 'textConfirm';
+  const divButtonConfirm = document.createElement('div');
+  divButtonConfirm.className = 'divButtonConfirm';
+  const btnYes = document.createElement('button');
+  btnYes.textContent = 'SI';
+  btnYes.className = 'button';
+  btnYes.id = 'btnYes';
+  const btnNo = document.createElement('button');
+  btnNo.textContent = 'NO';
+  btnNo.className = 'button';
+
+  divButtonConfirm.append(btnNo, btnYes);
+  divDelete.append(textConfirm, divButtonConfirm);
+  containerDelete.append(divDelete);
 
   containerButtonEdit.append(btnDelete, btnEdit);
   divModalEdit.append(textEdit, containerButtonEdit);
@@ -114,7 +138,8 @@ function post() {
 
   containerHeader.append(containerLogoPost, containerUserIcon, iconOff);
   containerMenu.append(btnNewPost);
-  section.append(containerHeader, containerMenu, containerModalPost, containerModalEdit);
+  // eslint-disable-next-line max-len
+  section.append(containerHeader, containerMenu, containerModalPost, containerModalEdit, containerDelete);
 
   btnLogOut.addEventListener('click', async () => {
     await signOut(auth);
@@ -162,11 +187,14 @@ function post() {
     prevScrollpos = currentScrollPos;
   });
 
-  // Abrir modar editar
-  const editEvent = (buttonModalEdit) => {
+  // Abrir modal editar
+  const editEvent = (buttonModalEdit, txtPost) => {
     buttonModalEdit.addEventListener('click', () => {
       console.log('abre modal');
       containerModalEdit.style.display = 'block';
+      textEdit.textContent = txtPost.textContent;
+      textEdit.dataset.id = txtPost.dataset.id;
+      console.log('id de tuerca edit', textEdit.dataset.id);
     });
 
     window.addEventListener('click', (event) => {
@@ -177,10 +205,21 @@ function post() {
   };
 
   // Eliminar post
-  const deleteEvent = () => {
-
-    await deleteDoc(doc(db, "post", "DC"));
-  }
+  const deleteEvent = (txtPost) => {
+    console.log('id Importante', txtPost.dataset.id);
+    console.log('edit 2', textEdit.dataset.id);
+    btnDelete.addEventListener('click', () => {
+      containerDelete.style.display = 'block';
+    });
+    btnYes.addEventListener('click', async () => {
+      await deleteDoc(doc(db, 'post', textEdit.dataset.id));
+      containerModalEdit.style.display = 'none';
+      containerDelete.style.display = 'none';
+    });
+    btnNo.addEventListener('click', () => {
+      containerDelete.style.display = 'none';
+    });
+  };
 
   // Dar like
   const likeEvent = (likesIcon, chayanne) => {
@@ -281,6 +320,7 @@ function post() {
         containerPost.className = 'containerPost';
         const txtPost = document.createElement('p');
         txtPost.textContent = docData.content;
+        txtPost.dataset.id = onlyID;
         // Container footer post
         const containerFooterPost = document.createElement('div');
         containerFooterPost.className = 'containerFooterPost';
@@ -320,7 +360,8 @@ function post() {
         const chayanne = docData.like;
 
         likeEvent(likesIcon, chayanne);
-        editEvent(buttonModalEdit);
+        editEvent(buttonModalEdit, txtPost);
+        deleteEvent(txtPost);
       });
     });
   }
