@@ -239,6 +239,17 @@ button.button {
     padding: 0.5rem;
     border: 1px solid #000000;    
 }
+
+#iconOff{
+    width: 7%;
+    position: absolute;
+    top: 1%;
+    left: 90%;
+    background-color: #FFFFFF;
+    border-radius: 100%;
+}
+
+/* seccion post */
 .containerMain {
     background-color: #575151;
     display: flex;
@@ -261,6 +272,10 @@ button.button {
     width: 100%;
     margin-left: 2%;
     font-weight: bolder;
+}
+
+.userEmail{
+    overflow-wrap: anywhere;
 }
 
 .containerUserIconPost{
@@ -434,6 +449,7 @@ button.button {
 /* Boton modal para editar y eliminar*/
 .divButtonModalEdit{
     display:flex;
+    margin-right: 1%;
 }
 
 #buttonModalEdit{
@@ -441,3 +457,13 @@ button.button {
     margin-bottom: 50%;
 }
 
+/* modal editar */
+.containerButtonEdit{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#btnDelete{
+    background-color: #DB0001;
+}

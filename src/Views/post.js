@@ -1,5 +1,5 @@
 import {
-  addDoc, collection, doc, getDocs, updateDoc, onSnapshot, query, arrayRemove, arrayUnion,
+  addDoc, collection, doc, updateDoc, onSnapshot, query, arrayRemove, arrayUnion, deleteDoc,
 } from 'firebase/firestore';
 import { async } from 'regenerator-runtime';
 import { auth, db } from '../lib';
@@ -23,6 +23,9 @@ function post() {
   userIcon.src = './user-icon/icon-green-mushroom.png';
   userIcon.id = 'userIcon';
   userIcon.className = 'modalOpen';
+  const iconOff = document.createElement('img');
+  iconOff.src = './Img/icono_off.png';
+  iconOff.id = 'iconOff';
 
   // Container menu
   const containerMenu = document.createElement('div');
@@ -44,9 +47,9 @@ function post() {
   const btnLogOut = document.createElement('p');
   btnLogOut.textContent = 'Cerrar Sesión';
   btnLogOut.className = 'textModal';
-  const btnMyWall = document.createElement('p');
+  /* const btnMyWall = document.createElement('p');
   btnMyWall.textContent = ('Mis publicaciones');
-  btnMyWall.className = 'textModal';
+  btnMyWall.className = 'textModal'; */
 
   // modal posteo
   // modal. contenedor (div)
@@ -78,10 +81,12 @@ function post() {
   containerModalEdit.className = 'modal';
   // modal content div --> contiene boton editar/elimiar y el contenido
   const divModalEdit = document.createElement('div');
-  divModalEdit.className = 'modalContentEdit';
+  divModalEdit.className = 'modalContentPost';
   const textEdit = document.createElement('textarea');
-  textEdit.className = 'textEdit';
+  textEdit.className = 'textPost';
   textEdit.placeholder = 'editalo che';
+  const containerButtonEdit = document.createElement('div');
+  containerButtonEdit.className = 'containerButtonEdit';
   const btnEdit = document.createElement('button');
   btnEdit.textContent = 'Guardar';
   btnEdit.id = 'btnEdit';
@@ -93,20 +98,21 @@ function post() {
   btnDelete.className = 'button';
   btnDelete.type = 'submit';
 
-  divModalEdit.append(textEdit, btnEdit, btnDelete);
+  containerButtonEdit.append(btnDelete, btnEdit);
+  divModalEdit.append(textEdit, containerButtonEdit);
   containerModalEdit.append(divModalEdit);
 
   divNoTextAlert.append(noTextAlert);
   divModalPost.append(textPost, btnPublish, divNoTextAlert);
   containerModalPost.append(divModalPost);
 
-  divModal.append(spanCloseModal, btnLogOut, btnMyWall);
+  divModal.append(spanCloseModal, btnLogOut);
   containerModal.append(divModal);
 
   containerUserIcon.append(userIcon, containerModal);
   containerLogoPost.append(logoPost);
 
-  containerHeader.append(containerLogoPost, containerUserIcon);
+  containerHeader.append(containerLogoPost, containerUserIcon, iconOff);
   containerMenu.append(btnNewPost);
   section.append(containerHeader, containerMenu, containerModalPost, containerModalEdit);
 
@@ -116,19 +122,19 @@ function post() {
   });
 
   // funciones click modal
-  userIcon.onclick = function () {
+  userIcon.onclick = function iconOpenModal() {
     containerModal.style.display = 'block';
   };
 
-  spanCloseModal.onclick = function () {
+  spanCloseModal.onclick = function closeModal() {
     containerModal.style.display = 'none';
   };
 
-  window.onclick = function (event) {
+  window.addEventListener('click', (event) => {
     if (event.target === containerModal) {
       containerModal.style.display = 'none';
     }
-  };
+  });
 
   // funciones click modal post
   btnNewPost.onclick = function () {
@@ -136,12 +142,25 @@ function post() {
     containerModalPost.style.display = 'block';
     textPost.value = '';
   };
-
-  window.onclick = function (event) {
+  window.addEventListener('click', (event) => {
     if (event.target === containerModalPost) {
       containerModalPost.style.display = 'none';
     }
-  };
+  });
+
+  // funcion scroll
+  let prevScrollpos = window.scrollY;
+  window.addEventListener('scroll', () => {
+    const currentScrollPos = window.scrollY;
+    if (prevScrollpos > currentScrollPos) {
+    // Desplazándose hacia arriba
+      btnNewPost.style.display = 'block';
+    } else {
+    // Desplazándose hacia abajo
+      btnNewPost.style.display = 'none';
+    }
+    prevScrollpos = currentScrollPos;
+  });
 
   // Abrir modar editar
   const editEvent = (buttonModalEdit) => {
@@ -149,7 +168,19 @@ function post() {
       console.log('abre modal');
       containerModalEdit.style.display = 'block';
     });
+
+    window.addEventListener('click', (event) => {
+      if (event.target === containerModalEdit) {
+        containerModalEdit.style.display = 'none';
+      }
+    });
   };
+
+  // Eliminar post
+  const deleteEvent = () => {
+
+    await deleteDoc(doc(db, "post", "DC"));
+  }
 
   // Dar like
   const likeEvent = (likesIcon, chayanne) => {
@@ -231,11 +262,13 @@ function post() {
         containerUserEmail.className = 'containerUserEmail';
         const userEmail = document.createElement('p');
         userEmail.textContent = docData.author;
+        userEmail.className = 'userEmail';
         const containerUserIconPost = document.createElement('div');
         containerUserIconPost.className = 'containerUserIconPost';
         const userIconPost = document.createElement('img');
         userIconPost.src = './user-icon/icon-red-mushroom.png';
         userIconPost.id = 'userIconPost';
+
         // botón editar/eliminar
         const divButtonModalEdit = document.createElement('div');
         divButtonModalEdit.className = 'divButtonModalEdit';
