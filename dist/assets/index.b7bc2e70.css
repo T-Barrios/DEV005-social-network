@@ -1,0 +1,436 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap');
+body {
+    background-color: #DB0001;
+    margin: 0;
+}
+.containerSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* Contenedor logo inicio */
+.containerLogoLogin {
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 80%
+}
+.logoLogin {
+    width: 70%;
+}
+.containerLogoRegister {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5%;
+}
+.logoRegister {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 85%;
+}
+/* Contenedor de titulo, imput y botones */
+.containerMainContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* Contenedor título */
+.containerTitle {
+    display: flex;
+    justify-content: center;
+}
+h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: 2rem;
+    color: #FFFFFF;
+    margin: auto;
+}
+/* Contenedor de inputs*/
+.containerInput {
+    width: fit-content;
+}
+h2 {
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    color: white;
+    letter-spacing: 2px;
+}
+p {
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    color: white;
+}
+.input {
+    box-sizing: border-box;
+    width: 310px;
+    height: 50px;
+    background: #F7F7F7;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 34px;
+    font-size: 20px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+/* Contenedor boton iniciar
+.containerBtnLogin {}
+*/
+button.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    border-radius: 2rem;
+    background-color: #212121;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    margin-bottom: 2rem;
+    padding-left: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-right: 2rem;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+/* Contenedor boton google 
+.containerBtnGoogle {}
+*/
+.buttonGoogle {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    background-color: #F7F7F7;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    width: 310px;
+    height: 60px;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 34px;
+}
+.imgGoogle {
+    width: 10%;
+}
+/* Container para crear cuenta*/
+.containerCreateAccount {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: min-content;
+
+}
+.createAccount {
+    text-decoration: underline;
+}
+/* Vista error */
+.containerError {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 2%;
+}
+.imgError {
+    width: 80%;
+
+}
+#textError {
+    font-size: 1rem;
+    background-color: #212121;
+    opacity: 0.8;
+    font-family: 'Inter', sans-serif;
+    color: white;
+    font-weight: 900;
+    width: 100%;
+    text-align: center;
+    /*padding-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+    border-radius: 3%; */
+}
+/* Vista welcome */
+.containerWelcome {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+.containerBtnEnter {
+    margin-top: 2rem;
+}
+/*
+.containarImgWelcome {
+}
+*/
+#imgWelcome{
+    width: 100%; 
+    margin-top: 2rem;   
+}
+#txtWelcome{
+    text-align: center;
+}
+#txtEnter{
+    text-align: center;
+    margin-top: 2rem;
+}
+/* vista post */
+.containerHeader {
+    background-color: #DB0001;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5%;
+}
+.containerLogoPost {
+    display: flex;
+    justify-content: center;
+
+}
+.logoPost {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 85%;  
+}
+.containerUserIcon {
+    display: flex;
+    justify-content: center; 
+    margin-top: 1%;
+    margin-bottom: 1%;   
+}
+#userIcon {
+    display: flex;
+    align-self: center;
+    width: 50%;
+    height: 70%;
+    background-color: #D9D9D9;  
+    border-radius: 100%;  
+    padding: 0.5rem;
+    border: 1px solid #000000;    
+}
+#iconOff{
+    width: 7%;
+    position: absolute;
+    top: 1%;
+    left: 90%;
+    background-color: #FFFFFF;
+    border-radius: 100%;
+}
+/* seccion post */
+.containerMain {
+    background-color: #575151;
+    display: flex;
+    flex-direction: column; 
+    width: 80%; 
+    border: 1px solid #000000;
+    border-radius: 8px; 
+    margin-bottom: 3%;
+}
+.containerHeaderPost{
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    margin-top: 2%;
+}
+.containerUserEmail{
+    display: flex;
+    width: 100%;
+    margin-left: 2%;
+    font-weight: bolder;
+}
+.userEmail{
+    overflow-wrap: anywhere;
+}
+.containerUserIconPost{
+    display: flex;
+    height: fit-content;
+    align-items: center;
+    margin-left: 2%;
+}
+#userIconPost{
+    display: flex;
+    width: 30px;
+    background-color: #D9D9D9;  
+    border-radius: 100%;  
+    padding: 0.5rem;
+    border: 1px solid #000000;
+}
+.containerPost{
+    margin-left: 4%;
+    margin-right: 4%;
+
+}
+.containerFooterPost{
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    margin-right: 2%;
+    margin-bottom: 2%;
+}
+.containerNumberOfLikes{
+    border-bottom-right-radius: 8px;
+}
+.containerLikesIcon{
+    display: flex;
+
+}
+#numberOfLikes{
+    margin: 0;
+    font-weight: bold;
+}
+#likesIcon{
+    width: 18px;
+    
+}
+.containerMenu{
+    display: flex;
+    position: fixed;
+    top: 85%;
+    left: 80%;
+}
+/*
+.containerBtnNewPost{
+    
+}
+*/
+#btnNewPost{
+    font-size: 4rem;
+    border-radius: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: #DB0001;
+    border: 1px solid #000000;
+    color: #FFFFFF;
+}
+/* Estilos de modal */
+.modal {
+    display: none;  
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0; 
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.4);
+}
+.modalContent {
+    background-color: #575151;
+    background-color: #D9D9D9;
+    margin: 18.5vw auto;
+    padding: 20px;
+    border: 3px solid black;
+    width: 50%;
+    border-radius: 8px;
+}
+.close {
+    color: black;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+.close:hover,
+.close:focus {
+  color:  red;
+  text-decoration: none;
+  cursor: pointer;
+}
+.textModal{
+    color: black;
+    font-weight: bold;
+    margin-left: 5%;
+}
+.textModal:hover,
+.textModal:focus {
+  color:  red;
+  text-decoration: none;
+  cursor: pointer;
+}
+.modalContentPost{
+    position: relative;
+    background-color: #575151;
+    margin: 18.5vw auto; 
+    padding: 20px;
+    border: 3px solid black;
+    width: 80vw;
+    height: 60vh;
+    border-radius: 8px;
+}
+.textPost{
+    background-color: #575151;
+    width: 100%;
+    height: 90%;
+    color: #FFFFFF;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;    
+}
+::placeholder{
+    color:#dfd8d8;
+}
+#btnPublish{
+    position: absolute;
+    left: 52%;
+}
+/* Alerta de No post */
+.divNoTextAlert{
+    position: absolute;
+    top: 30%;
+    left: 15%;
+    justify-content: center;
+}
+#noTextAlert{
+    display: none; 
+    font-size: 1rem;
+    background-color: #440b0b;
+    opacity: 0.8;
+    font-family: 'Inter', sans-serif;
+    color: white;
+    font-weight: 900;
+    width: 100%;
+    text-align: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    
+}
+/* Boton modal para editar y eliminar*/
+.divButtonModalEdit{
+    display:flex;
+    margin-right: 1%;
+}
+#buttonModalEdit{
+    width: 30px;
+    margin-bottom: 50%;
+}
+/* modal editar */
+.containerButtonEdit{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+#btnDelete{
+    background-color: #DB0001;
+}
+/* modal confirmar */
+#textConfirm{
+    color: #000000;
+    text-align: center;
+    margin-bottom: 30%;
+
+}
+.divButtonConfirm{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+#btnYes{
+    background-color: #DB0001;
+}
