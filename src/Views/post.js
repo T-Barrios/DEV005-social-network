@@ -17,6 +17,9 @@ function post() {
   const logoPost = document.createElement('img');
   logoPost.className = 'logoPost';
   logoPost.src = './Img/logo-post.png';
+  logoPost.addEventListener('click', () => {
+    window.open('https://www.youtube.com/watch?v=imSefM4GPpE&ab_channel=Illumination');
+  });
   const containerUserIcon = document.createElement('div');
   containerUserIcon.className = 'containerUserIcon';
   const userIcon = document.createElement('img');
@@ -197,6 +200,15 @@ function post() {
       console.log('id de tuerca edit', textEdit.dataset.id);
     });
 
+    // editar texto
+    btnEdit.addEventListener('click', async () => {
+      const editRef = doc(db, 'post', textEdit.dataset.id);
+      await updateDoc(editRef, {
+        content: textEdit.value,
+      });
+      containerModalEdit.style.display = 'none';
+    });
+
     window.addEventListener('click', (event) => {
       if (event.target === containerModalEdit) {
         containerModalEdit.style.display = 'none';
@@ -300,7 +312,7 @@ function post() {
         const containerUserEmail = document.createElement('div');
         containerUserEmail.className = 'containerUserEmail';
         const userEmail = document.createElement('p');
-        userEmail.textContent = docData.author;
+        userEmail.textContent = docData.author.substring(0, docData.author.indexOf('@'));
         userEmail.className = 'userEmail';
         const containerUserIconPost = document.createElement('div');
         containerUserIconPost.className = 'containerUserIconPost';
