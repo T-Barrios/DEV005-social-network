@@ -47,6 +47,14 @@ function register(navigateTo) {
   buttonRegister.textContent = 'REGISTRAR';
   buttonRegister.id = 'buttonRegister';
 
+  // Contenedor boton iniciar
+  const containerBtnBack = document.createElement('div');
+  containerBtnBack.className = 'containerBtnBack';
+  const buttonBack = document.createElement('button');
+  buttonBack.className = 'button';
+  buttonBack.textContent = 'VOLVER';
+  buttonBack.id = 'buttonBack';
+
   // Contenedor parrafo error
   const containerError = document.createElement('div');
   containerError.className = 'containerError';
@@ -57,11 +65,17 @@ function register(navigateTo) {
   containerTitle.append(titleRegister);
   // eslint-disable-next-line max-len
   containerInput.append(textMail, inputMail, textPass, inputPass, textPassConfirm, inputPassConfirm);
+  containerBtnBack.append(buttonBack);
   containerBtnRegister.append(buttonRegister);
   containerError.append(textError);
-  containerMainContent.append(containerTitle, containerInput, containerError, containerBtnRegister);
+  // eslint-disable-next-line max-len
+  containerMainContent.append(containerTitle, containerInput, containerError, containerBtnRegister, containerBtnBack);
   article.append(logoRegister);
   section.append(article, containerMainContent);
+
+  buttonBack.addEventListener('click', () => {
+    navigateTo('/');
+  });
 
   buttonRegister.addEventListener('click', async (e) => {
     e.preventDefault();
@@ -84,7 +98,7 @@ function register(navigateTo) {
         } else if (error.code === 'auth/invalid-email') {
           textError.innerHTML = 'Correo no válido';
         } else if (error.code === 'auth/weak-password') {
-          textError.innerHTML = 'La contraseña debe tener al menos 6 carácteres';
+          textError.innerHTML = 'La contraseña debe tener al menos 6 caracteres';
         } else if (error.code === 'auth/missing-password') {
           textError.innerHTML = 'Debe ingresar una contraseña';
         } else if (error.code === 'auth/missing-email') {
