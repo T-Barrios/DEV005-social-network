@@ -1,10 +1,8 @@
 import {
   addDoc, collection, doc, updateDoc, onSnapshot, query, arrayRemove, arrayUnion, deleteDoc,
 } from 'firebase/firestore';
-import { async } from 'regenerator-runtime';
 import { auth, db } from '../lib';
 import { signOut } from '../lib/firebase-service';
-// import { array } from 'yargs';
 
 function post() {
   const section = document.createElement('article');
@@ -19,6 +17,7 @@ function post() {
   logoPost.src = './Img/logo-post.png';
   logoPost.addEventListener('click', () => {
     window.open('https://www.youtube.com/watch?v=imSefM4GPpE&ab_channel=Illumination');
+    console.log('se hizo click');
   });
   const containerUserIcon = document.createElement('div');
   containerUserIcon.className = 'containerUserIcon';
