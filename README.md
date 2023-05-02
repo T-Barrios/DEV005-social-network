@@ -16,13 +16,19 @@ En definitiva, nuestra app busca satisfacer las necesidades de la comunidad de N
 ## Prototipos: 
 
 __Prototipo Baja Fidelidad:__
+
 ![Prototipo baja1](./src/img-readme/prototipo-baja-1.png)
+
 ![Prototipo baja2](./src/img-readme/prototipo-baja-2.png)
+
 ![Prototipo baja3](./src/img-readme/prototipo-baja-3.png)
 
 __Prototipo Alta Fidelidad:__
+
 ![Prototip alta1](./src/img-readme/prototipo-alta-1.png)
+
 ![Prototip alta2](./src/img-readme/prototipo-alta-2.png)
+
 ![Prototip alta3](./src/img-readme/prototipo-alta-3.png)
 
 [Has Click aqui para ver el prototipo en Figma](https://www.figma.com/file/rar3VutV7to8xH18i2P0dg/Untitled?type=design&node-id=0-1&t=1Gdco5rDmrOLqJtg-0)
