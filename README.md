@@ -1,5 +1,5 @@
 
-# 🄽🄸🄽🅃🄴🄽🄳🄾 🅆🄾🅁🄻🄳
+# 🄽 🄸 🄽 🅃 🄴 🄽 🄳 🄾   🅆 🄾 🅁 🄻 🄳
 
 # Biendenid@s al repositorio de Teresa Barrios y Giselle Cifuentes!
 
@@ -16,11 +16,13 @@ En definitiva, nuestra app busca satisfacer las necesidades de la comunidad de N
 ## Prototipos: 
 
 __Prototipo Baja Fidelidad:__
+
 ![Prototipo baja1](./src/img-readme/prototipo-baja-1.png)
 ![Prototipo baja2](./src/img-readme/prototipo-baja-2.png)
 ![Prototipo baja3](./src/img-readme/prototipo-baja-3.png)
 
 __Prototipo Alta Fidelidad:__
+
 ![Prototip alta1](./src/img-readme/prototipo-alta-1.png)
 ![Prototip alta2](./src/img-readme/prototipo-alta-2.png)
 ![Prototip alta3](./src/img-readme/prototipo-alta-3.png)
@@ -33,7 +35,13 @@ Los comentarios de los usuarios fueron mayoritariamente positivos y muchos expre
 
 Además, recibimos recomendaciones valiosas de los usuarios, quienes sugirieron que se ordenaran los comentarios por fecha de publicación y que se indicara claramente si un comentario ya había recibido un "like" o no, ya que actualmente esto no es del todo claro.
 
-**Objetivos de aprendisaje**
+En relación a los feedback sugirieron unos cambios para mejorar la usabilidad/visibilidad, tal y como:
+ - La imagen del ícono para hacer logOut no era intuitiva para conocer su funcionalidad, por lo tanto, se le agrega un ícono extra encima del anterior para hacer más intuitiva su función.
+ - La ubicación del botón para agregar publicaciones tapaba una porción de los posts, por lo que se ideó que al realizar scroll hacia abajo, el botón se desvanece y al hacer scroll hacia arriba, el botón vuelve a aparecer.
+ - La vista registro no tenía ninguna forma para regresar a ola vista anterior. Por esta razón, se agrega el botón regresar para facilitar la navegación entre estas vistas.
+ 
+
+**Objetivos de aprendizaje**
 
 ### HTML
 - [✅] **Uso de HTML semántico**
