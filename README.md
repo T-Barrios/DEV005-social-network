@@ -40,10 +40,13 @@ __Prototipo Alta Fidelidad:__
 
 Los comentarios de los usuarios fueron mayoritariamente positivos y muchos expresaron que les gustó la idea de Nintendo, ya que les recordaba su infancia jugando videojuegos.
 
-Además, recibimos recomendaciones valiosas de los usuarios, quienes sugirieron unos cambios para mejorar la usabilidad/visibilidad, tal y como:
- -La imagen del ícono para hacer logOut no era intuitiva para conocer su funcionalidad, por lo tanto, se le agrega un ícono extra encima del anterior para hacer más intuitiva su función.
- -La ubicación del botón para agregar publicaciones tapaba una porción de los posts, por lo que se ideó que al realizar scroll hacia abajo, el botón se desvanece y al hacer scroll hacia arriba, el botón vuelve a aparecer.
- -La vista registro no tenía ninguna forma para regresar a ola vista anterior. Por esta razón, se agrega el botón regresar para facilitar la navegación entre estas vistas.
+Además, recibimos recomendaciones valiosas de los usuarios, quienes sugirieron que se ordenaran los comentarios por fecha de publicación y que se indicara claramente si un comentario ya había recibido un "like" o no, ya que actualmente esto no es del todo claro.
+
+En relación a los feedback sugirieron unos cambios para mejorar la usabilidad/visibilidad, tal y como:
+ - La imagen del ícono para hacer logOut no era intuitiva para conocer su funcionalidad, por lo tanto, se le agrega un ícono extra encima del anterior para hacer más intuitiva su función.
+ - La ubicación del botón para agregar publicaciones tapaba una porción de los posts, por lo que se ideó que al realizar scroll hacia abajo, el botón se desvanece y al hacer scroll hacia arriba, el botón vuelve a aparecer.
+ - La vista registro no tenía ninguna forma para regresar a ola vista anterior. Por esta razón, se agrega el botón regresar para facilitar la navegación entre estas vistas.
+ 
 
 **Objetivos de aprendizaje**
 
