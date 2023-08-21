@@ -15,6 +15,7 @@ En definitiva, nuestra app busca satisfacer las necesidades de la comunidad de N
 
 ## Prototipos: 
 
+
 __Prototipo Baja Fidelidad:__
 
 ![Prototipo baja1](./src/img-readme/prototipo-baja-1.png)
@@ -22,6 +23,8 @@ __Prototipo Baja Fidelidad:__
 ![Prototipo baja2](./src/img-readme/prototipo-baja-2.png)
 
 ![Prototipo baja3](./src/img-readme/prototipo-baja-3.png)
+
+
 
 __Prototipo Alta Fidelidad:__
 
