@@ -199,6 +199,7 @@ function post() {
     buttonModalEdit.addEventListener('click', () => {
       console.log('abre modal');
       containerModalEdit.style.display = 'block';
+      document.body.classList.add('modal-open');
       textEdit.textContent = txtPost.textContent;
       textEdit.dataset.id = txtPost.dataset.id;
       console.log('id de tuerca edit', textEdit.dataset.id);
@@ -211,11 +212,13 @@ function post() {
         content: textEdit.value,
       });
       containerModalEdit.style.display = 'none';
+      document.body.classList.remove('modal-open');
     });
 
     window.addEventListener('click', (event) => {
       if (event.target === containerModalEdit) {
         containerModalEdit.style.display = 'none';
+        document.body.classList.remove('modal-open');
       }
     });
   };
