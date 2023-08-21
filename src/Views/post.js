@@ -151,15 +151,18 @@ function post() {
   // funciones click modal
   userIcon.onclick = function iconOpenModal() {
     containerModal.style.display = 'block';
+    document.body.classList.add('modal-open');
   };
 
   spanCloseModal.onclick = function closeModal() {
     containerModal.style.display = 'none';
+    document.body.classList.remove('modal-open');
   };
 
   window.addEventListener('click', (event) => {
     if (event.target === containerModal) {
       containerModal.style.display = 'none';
+      document.body.classList.remove('modal-open');
     }
   });
 
@@ -168,10 +171,12 @@ function post() {
     noTextAlert.style.display = 'none';
     containerModalPost.style.display = 'block';
     textPost.value = '';
+    document.body.classList.add('modal-open');
   };
   window.addEventListener('click', (event) => {
     if (event.target === containerModalPost) {
       containerModalPost.style.display = 'none';
+      document.body.classList.remove('modal-open');
     }
   });
 

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap');
+
 body {
     background-color: #DB0001;
     margin: 0;
@@ -130,7 +131,7 @@ button.button {
 
 .imgGoogle {
     width: 10%;
-} 
+}
 
 /* Container para crear cuenta*/
 .containerCreateAccount {
@@ -187,23 +188,24 @@ button.button {
 .containerBtnEnter {
     margin-top: 2rem;
 }
+
 /*
 .containarImgWelcome {
 }
 */
-#imgWelcome{
-    width: 100%; 
-    margin-top: 2rem;   
+#imgWelcome {
+    width: 100%;
+    margin-top: 2rem;
 }
 
-#txtWelcome{
+#txtWelcome {
     text-align: center;
 }
 
-#txtEnter{
+#txtEnter {
     text-align: center;
     margin-top: 2rem;
-} 
+}
 
 /* vista post */
 .containerHeader {
@@ -218,29 +220,32 @@ button.button {
     justify-content: center;
 
 }
+
 .logoPost {
     margin-top: 5%;
     margin-bottom: 5%;
-    width: 85%;  
+    width: 85%;
 }
+
 .containerUserIcon {
     display: flex;
-    justify-content: center; 
+    justify-content: center;
     margin-top: 1%;
-    margin-bottom: 1%;   
+    margin-bottom: 1%;
 }
+
 #userIcon {
     display: flex;
     align-self: center;
     width: 50%;
     height: 70%;
-    background-color: #D9D9D9;  
-    border-radius: 100%;  
+    background-color: #D9D9D9;
+    border-radius: 100%;
     padding: 0.5rem;
-    border: 1px solid #000000;    
+    border: 1px solid #000000;
 }
 
-#iconOff{
+#iconOff {
     width: 7%;
     position: absolute;
     top: 1%;
@@ -253,52 +258,55 @@ button.button {
 .containerMain {
     background-color: #575151;
     display: flex;
-    flex-direction: column; 
-    width: 80%; 
+    flex-direction: column;
+    width: 80%;
     border: 1px solid #000000;
-    border-radius: 8px; 
+    border-radius: 8px;
     margin-bottom: 3%;
 }
 
-.containerHeaderPost{
+.containerHeaderPost {
     display: flex;
     align-items: center;
     flex-direction: row-reverse;
     justify-content: space-evenly;
     margin-top: 2%;
 }
-.containerUserEmail{
+
+.containerUserEmail {
     display: flex;
     width: 100%;
     margin-left: 2%;
     font-weight: bolder;
 }
 
-.userEmail{
+.userEmail {
     overflow-wrap: anywhere;
 }
 
-.containerUserIconPost{
+.containerUserIconPost {
     display: flex;
     height: fit-content;
     align-items: center;
     margin-left: 2%;
 }
 
-#userIconPost{
+#userIconPost {
     display: flex;
     width: 30px;
-    background-color: #D9D9D9;  
-    border-radius: 100%;  
+    background-color: #D9D9D9;
+    border-radius: 100%;
     padding: 0.5rem;
     border: 1px solid #000000;
-} 
-.containerPost{
+}
+
+.containerPost {
     margin-left: 4%;
     margin-right: 4%;
 
 }
-.containerFooterPost{
+
+.containerFooterPost {
     display: flex;
     align-items: center;
     flex-direction: row-reverse;
@@ -307,33 +315,39 @@ button.button {
     margin-right: 2%;
     margin-bottom: 2%;
 }
-.containerNumberOfLikes{
+
+.containerNumberOfLikes {
     border-bottom-right-radius: 8px;
 }
-.containerLikesIcon{
+
+.containerLikesIcon {
     display: flex;
 
 }
-#numberOfLikes{
+
+#numberOfLikes {
     margin: 0;
     font-weight: bold;
 }
-#likesIcon{
+
+#likesIcon {
     width: 18px;
-    
+
 }
-.containerMenu{
+
+.containerMenu {
     display: flex;
     position: fixed;
     top: 85%;
     left: 80%;
 }
+
 /*
 .containerBtnNewPost{
     
 }
 */
-#btnNewPost{
+#btnNewPost {
     font-size: 4rem;
     border-radius: 100%;
     padding-left: 1rem;
@@ -344,16 +358,21 @@ button.button {
 }
 
 /* Estilos de modal */
+
+.modal-open {
+    overflow: hidden;
+}
+
 .modal {
-    display: none;  
-    position: fixed; 
-    z-index: 1; 
+    display: none;
+    position: fixed;
+    z-index: 1;
     left: 0;
-    top: 0; 
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgba(0,0,0,0.4);
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modalContent {
@@ -364,6 +383,17 @@ button.button {
     border: 3px solid black;
     width: 50%;
     border-radius: 8px;
+    overflow-y: auto;
+}
+
+/* Style to make scrollbar always visible in the modal */
+.modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 8px;
 }
 
 .close {
@@ -371,16 +401,16 @@ button.button {
     float: right;
     font-size: 28px;
     font-weight: bold;
-  }
-  
-.close:hover,
-.close:focus {
-  color:  red;
-  text-decoration: none;
-  cursor: pointer;
 }
 
-.textModal{
+.close:hover,
+.close:focus {
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.textModal {
     color: black;
     font-weight: bold;
     margin-left: 5%;
@@ -388,15 +418,15 @@ button.button {
 
 .textModal:hover,
 .textModal:focus {
-  color:  red;
-  text-decoration: none;
-  cursor: pointer;
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
 }
 
-.modalContentPost{
+.modalContentPost {
     position: relative;
     background-color: #575151;
-    margin: 18.5vw auto; 
+    margin: 18.5vw auto;
     padding: 20px;
     border: 3px solid black;
     width: 80vw;
@@ -404,7 +434,7 @@ button.button {
     border-radius: 8px;
 }
 
-.textPost{
+.textPost {
     background-color: #575151;
     width: 100%;
     height: 90%;
@@ -412,27 +442,29 @@ button.button {
     border: none;
     outline: none;
     font-size: 1rem;
-    font-family: 'Inter', sans-serif;    
-}
-::placeholder{
-    color:#dfd8d8;
+    font-family: 'Inter', sans-serif;
+    resize: none;
 }
 
-#btnPublish{
+::placeholder {
+    color: #dfd8d8;
+}
+
+#btnPublish {
     position: absolute;
     left: 52%;
 }
 
 /* Alerta de No post */
-.divNoTextAlert{
+.divNoTextAlert {
     position: absolute;
     top: 30%;
     left: 15%;
     justify-content: center;
 }
 
-#noTextAlert{
-    display: none; 
+#noTextAlert {
+    display: none;
     font-size: 1rem;
     background-color: #440b0b;
     opacity: 0.8;
@@ -443,45 +475,45 @@ button.button {
     text-align: center;
     padding-left: 1rem;
     padding-right: 1rem;
-    
+
 }
 
 /* Boton modal para editar y eliminar*/
-.divButtonModalEdit{
-    display:flex;
+.divButtonModalEdit {
+    display: flex;
     margin-right: 1%;
 }
 
-#buttonModalEdit{
+#buttonModalEdit {
     width: 30px;
     margin-bottom: 50%;
 }
 
 /* modal editar */
-.containerButtonEdit{
+.containerButtonEdit {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
 }
 
-#btnDelete{
+#btnDelete {
     background-color: #DB0001;
 }
 
 /* modal confirmar */
-#textConfirm{
+#textConfirm {
     color: #000000;
     text-align: center;
     margin-bottom: 30%;
 
 }
 
-.divButtonConfirm{
+.divButtonConfirm {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
 }
 
-#btnYes{
+#btnYes {
     background-color: #DB0001;
 }
