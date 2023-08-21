@@ -5,6 +5,7 @@ import { auth, db } from '../lib';
 import { signOut } from '../lib/firebase-service';
 
 function post() {
+  document.body.classList.remove('modal-open');
   const section = document.createElement('article');
   section.className = 'containerSection';
   // Contenedor header post

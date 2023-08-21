@@ -4,6 +4,7 @@ import { signInWithEmailAndPassword, signInWithPopup } from '../lib/firebase-ser
 // import { onAuthStateChanged } from '../lib/firebase-service';
 
 function login(navigateTo) {
+  document.body.classList.remove('modal-open');
   const section = document.createElement('section');
   section.className = 'containerSection';
   section.id = 'sectionLogin';

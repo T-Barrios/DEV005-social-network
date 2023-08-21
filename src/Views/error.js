@@ -1,4 +1,5 @@
 function error() {
+  document.body.classList.remove('modal-open');
   const containerError = document.createElement('div');
   containerError.className = 'containerError';
   const imgError = document.createElement('img');

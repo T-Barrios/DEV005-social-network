@@ -2,6 +2,7 @@ import { createUserWithEmailAndPassword } from '../lib/firebase-service.js';
 // import { auth } from '../lib/index.js';
 
 function register(navigateTo) {
+  document.body.classList.remove('modal-open');
   const section = document.createElement('article');
   section.className = 'containerSection';
   // Contenedor logo inicio
